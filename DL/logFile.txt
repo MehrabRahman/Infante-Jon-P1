@@ -1,0 +1,233 @@
+2022-01-10 22:59:29.930 -05:00 [INF] The user Jon has been added to the database with the ID 777452368
+2022-01-10 23:00:14.419 -05:00 [INF] A new store has been added with Name: Atlantic Hardware Branch, City: Charleston, State: SC, Address: 500 Seven Lane Dr. and ID of 777452414
+2022-01-10 23:00:53.381 -05:00 [INF] A new store has been added with Name: Pacifico, City: San Francisco, State: CA, Address: 611 Jones Rd. and ID of 777452453
+2022-01-10 23:01:31.827 -05:00 [INF] The product IMac Pro 12 with a price of 199.99 and a quantity of 10, has been added to the store Atlantic Hardware Branch
+2022-01-10 23:01:40.989 -05:00 [INF] The product IMac Pro 12 has been updated with a description of nice, price of 199.99, and a quantity of 20
+2022-01-10 23:02:03.086 -05:00 [INF] The product IPhone 13 Pro with a price of 1099.99 and a quantity of 20, has been added to the store Atlantic Hardware Branch
+2022-01-10 23:02:23.264 -05:00 [INF] The product Pixel 4 with a price of 899.99 and a quantity of 15, has been added to the store Pacifico
+2022-01-10 23:02:38.352 -05:00 [INF] The product IMac Pro 12 has been updated with a description of nice, price of 199.99, and a quantity of 18
+2022-01-10 23:02:38.466 -05:00 [INF] A product order of 2 IMac Pro 12s has been placed with the ID of 777452558 to the user Jon's shopping cart
+2022-01-10 23:02:43.633 -05:00 [INF] The product IPhone 13 Pro has been updated with a description of Unused, price of 1099.99, and a quantity of 17
+2022-01-10 23:02:43.874 -05:00 [INF] A product order of 3 IPhone 13 Pros has been placed with the ID of 777452563 to the user Jon's shopping cart
+2022-01-10 23:02:59.113 -05:00 [INF] The product Pixel 4 has been updated with a description of Brand new, price of 899.99, and a quantity of 12
+2022-01-10 23:02:59.222 -05:00 [INF] A product order of 3 Pixel 4s has been placed with the ID of 777452579 to the user Jon's shopping cart
+2022-01-10 23:03:09.175 -05:00 [INF] The product order with ID 777452579 has been edited with a new quantity of 99 for user Jon
+2022-01-10 23:03:09.424 -05:00 [INF] The product order with ID 777452579 has been edited with a new quantity of 3 for user Jon
+2022-01-10 23:03:20.249 -05:00 [INF] The product order with ID 777452579 has been edited with a new quantity of 6 for user Jon
+2022-01-10 23:03:21.657 -05:00 [INF] The product Pixel 4 has been updated with a description of Brand new, price of 899.99, and a quantity of 9
+2022-01-10 23:03:32.309 -05:00 [INF] The product IPhone 13 Pro has been updated with a description of Unused, price of 1099.99, and a quantity of 20
+2022-01-10 23:03:32.420 -05:00 [INF] The product order with ID 777452563 has been deleted from the user Jon's shopping cart
+2022-01-10 23:03:36.874 -05:00 [INF] The user Jon has checked out and created a new store order with ID 504438 with a total amount of $5799.92
+2022-01-10 23:03:38.810 -05:00 [INF] An order has been added to the store Atlantic Hardware Branch from the user Jon with a total amount of $399.98
+2022-01-10 23:03:40.160 -05:00 [INF] An order has been added to the store Pacifico from the user Jon with a total amount of $5399.94
+2022-01-10 23:04:05.635 -05:00 [INF] The product IMac Pro 12 has been updated with a description of nice, price of 199.99, and a quantity of 15
+2022-01-10 23:04:05.862 -05:00 [INF] A product order of 3 IMac Pro 12s has been placed with the ID of 777452645 to the user Jon's shopping cart
+2022-01-10 23:04:13.666 -05:00 [INF] The product IPhone 13 Pro has been updated with a description of Unused, price of 1099.99, and a quantity of 18
+2022-01-10 23:04:13.774 -05:00 [INF] A product order of 2 IPhone 13 Pros has been placed with the ID of 777452653 to the user Jon's shopping cart
+2022-01-10 23:04:23.296 -05:00 [INF] The product Pixel 4 has been updated with a description of Brand new, price of 899.99, and a quantity of 7
+2022-01-10 23:04:23.403 -05:00 [INF] A product order of 2 Pixel 4s has been placed with the ID of 777452663 to the user Jon's shopping cart
+2022-01-10 23:04:35.112 -05:00 [INF] The user Banana has been added to the database with the ID 777452673
+2022-01-10 23:04:47.657 -05:00 [INF] The product IMac Pro 12 has been updated with a description of nice, price of 199.99, and a quantity of 2
+2022-01-10 23:04:47.764 -05:00 [INF] A product order of 13 IMac Pro 12s has been placed with the ID of 777452687 to the user Banana's shopping cart
+2022-01-10 23:04:58.073 -05:00 [INF] The user Banana has checked out and created a new store order with ID 714049 with a total amount of $2599.87
+2022-01-10 23:04:59.708 -05:00 [INF] An order has been added to the store Atlantic Hardware Branch from the user Banana with a total amount of $2599.87
+2022-01-10 23:05:19.843 -05:00 [INF] The product IMac Pro 12 has been updated with a description of nice, price of 199.99, and a quantity of 1
+2022-01-10 23:05:19.951 -05:00 [INF] A product order of 1 IMac Pro 12s has been placed with the ID of 777452719 to the user Banana's shopping cart
+2022-01-10 23:05:26.619 -05:00 [INF] The product IPhone 13 Pro has been updated with a description of Unused, price of 1099.99, and a quantity of 16
+2022-01-10 23:05:26.871 -05:00 [INF] A product order of 2 IPhone 13 Pros has been placed with the ID of 777452726 to the user Banana's shopping cart
+2022-01-10 23:05:35.705 -05:00 [INF] The product Pixel 4 has been updated with a description of Brand new, price of 899.99, and a quantity of 2
+2022-01-10 23:05:35.977 -05:00 [INF] A product order of 5 Pixel 4s has been placed with the ID of 777452735 to the user Banana's shopping cart
+2022-01-10 23:07:06.354 -05:00 [INF] The store Atlantic Hardware Branch with an ID of 777452414 has been deleted as well as all of its corresponding products in its inventory
+2022-01-10 23:07:14.156 -05:00 [INF] The store Pacifico with an ID of 777452453 has been deleted as well as all of its corresponding products in its inventory
+2022-01-11 11:12:02.087 -05:00 [INF] A new store has been added with Name: Jonny's Original Atlantic Branch, City: Charleston, State: SC, Address: 600 Jones Dr. and ID of 777496320
+2022-01-11 11:12:21.189 -05:00 [INF] The product IPhone 9 Pro with a price of 699.99 and a quantity of 10, has been added to the store Jonny's Original Atlantic Branch
+2022-01-11 11:12:38.032 -05:00 [INF] A new store has been added with Name: Pacific Branch, City: SF, State: CA, Address: 611 Seven Farms Dr and ID of 777496357
+2022-01-11 11:12:50.790 -05:00 [INF] The product Pixel 3 with a price of 599.99 and a quantity of 20, has been added to the store Pacific Branch
+2022-01-11 11:13:10.445 -05:00 [INF] The product MacBook Pro 2013 with a price of 899.99 and a quantity of 10, has been added to the store Pacific Branch
+2022-01-11 13:14:46.636 -05:00 [INF] The user Alex has been added to the database with the ID 777503685
+2022-01-11 13:15:09.844 -05:00 [INF] The product IPhone 9 Pro has been updated with a description of Cool, price of 699.99, and a quantity of 5
+2022-01-11 13:15:10.084 -05:00 [INF] A product order of 5 IPhone 9 Pros has been placed with the ID of 777503709 to the user Jon's shopping cart
+2022-01-11 13:15:18.020 -05:00 [INF] The product Pixel 3 has been updated with a description of Unused, price of 599.99, and a quantity of 17
+2022-01-11 13:15:18.267 -05:00 [INF] A product order of 3 Pixel 3s has been placed with the ID of 777503718 to the user Jon's shopping cart
+2022-01-11 13:15:22.464 -05:00 [INF] The product MacBook Pro 2013 has been updated with a description of very old, price of 899.99, and a quantity of 8
+2022-01-11 13:15:22.717 -05:00 [INF] A product order of 2 MacBook Pro 2013s has been placed with the ID of 777503722 to the user Jon's shopping cart
+2022-01-11 13:15:39.785 -05:00 [INF] The user t has been added to the database with the ID 777503739
+2022-01-11 13:15:57.305 -05:00 [INF] The product IPhone 9 Pro has been updated with a description of Cool, price of 699.99, and a quantity of 2
+2022-01-11 13:15:57.564 -05:00 [INF] A product order of 3 IPhone 9 Pros has been placed with the ID of 777503757 to the user Alex's shopping cart
+2022-01-11 13:16:05.443 -05:00 [INF] The product Pixel 3 has been updated with a description of Unused, price of 599.99, and a quantity of 5
+2022-01-11 13:16:05.709 -05:00 [INF] A product order of 12 Pixel 3s has been placed with the ID of 777503765 to the user Alex's shopping cart
+2022-01-11 13:16:14.757 -05:00 [INF] The user Alex has checked out and created a new store order with ID 6744 with a total amount of $9299.85
+2022-01-11 13:16:16.742 -05:00 [INF] An order has been added to the store Jonny's Original Atlantic Branch from the user Alex with a total amount of $2099.97
+2022-01-11 13:16:17.895 -05:00 [INF] An order has been added to the store Pacific Branch from the user Alex with a total amount of $7199.88
+2022-01-11 13:16:46.898 -05:00 [INF] The product IPhone 9 Pro has been updated with a description of Cool, price of 699.99, and a quantity of 0
+2022-01-11 13:16:47.141 -05:00 [INF] A product order of 2 IPhone 9 Pros has been placed with the ID of 777503806 to the user Alex's shopping cart
+2022-01-11 13:16:57.250 -05:00 [INF] The product Pixel 3 has been updated with a description of Unused, price of 599.99, and a quantity of 2
+2022-01-11 13:16:57.358 -05:00 [INF] A product order of 3 Pixel 3s has been placed with the ID of 777503817 to the user Alex's shopping cart
+2022-01-11 13:17:02.890 -05:00 [INF] The product MacBook Pro 2013 has been updated with a description of very old, price of 899.99, and a quantity of 6
+2022-01-11 13:17:02.997 -05:00 [INF] A product order of 2 MacBook Pro 2013s has been placed with the ID of 777503822 to the user Alex's shopping cart
+2022-01-11 13:17:29.066 -05:00 [INF] The product IPhone 9 Pro has been updated with a description of -1, price of 2.99, and a quantity of 5
+2022-01-11 13:17:37.608 -05:00 [INF] The store Jonny's Original Atlantic Branch with an ID of 777496320 has been deleted as well as all of its corresponding products in its inventory
+2022-01-11 13:17:46.070 -05:00 [INF] The product with an ID of 777496373 has been deleted from the store Pacific Branch}
+2022-01-11 13:18:00.689 -05:00 [INF] The product Pixel 3 has been updated with a description of cool, price of 99.99, and a quantity of 77
+2022-01-11 13:19:12.565 -05:00 [INF] The user Jon has checked out and created a new store order with ID 537619 with a total amount of $1799.97
+2022-01-11 13:19:14.402 -05:00 [INF] An order has been added to the store Pacific Branch from the user Jon with a total amount of $1799.97
+2022-01-11 13:19:38.596 -05:00 [INF] The product Macbook pro 18 with a price of 999.99 and a quantity of 20, has been added to the store Pacific Branch
+2022-01-11 13:19:57.617 -05:00 [INF] The product Pixel 3 has been updated with a description of cool, price of 99.99, and a quantity of 67
+2022-01-11 13:19:57.861 -05:00 [INF] A product order of 10 Pixel 3s has been placed with the ID of 777503997 to the user Jon's shopping cart
+2022-01-11 13:20:02.029 -05:00 [INF] The product Macbook pro 18 has been updated with a description of nice, price of 999.99, and a quantity of 15
+2022-01-11 13:20:02.139 -05:00 [INF] A product order of 5 Macbook pro 18s has been placed with the ID of 777504002 to the user Jon's shopping cart
+2022-01-11 13:20:13.454 -05:00 [INF] The product Macbook pro 18 has been updated with a description of nice, price of 999.99, and a quantity of 20
+2022-01-11 13:20:13.689 -05:00 [INF] The product order with ID 777504002 has been deleted from the user Jon's shopping cart
+2022-01-11 13:20:22.111 -05:00 [INF] The product Macbook pro 18 has been updated with a description of nice, price of 999.99, and a quantity of 5
+2022-01-11 13:20:22.336 -05:00 [INF] A product order of 15 Macbook pro 18s has been placed with the ID of 777504022 to the user Jon's shopping cart
+2022-01-11 13:20:28.747 -05:00 [INF] The user Jon has checked out and created a new store order with ID 846001 with a total amount of $15999.75
+2022-01-11 13:20:30.710 -05:00 [INF] An order has been added to the store Pacific Branch from the user Jon with a total amount of $15999.75
+2022-01-11 13:22:25.212 -05:00 [INF] The product with an ID of 777503971 has been deleted from the store Pacific Branch}
+2022-01-11 13:23:01.173 -05:00 [INF] The product Banana with a price of 99 and a quantity of 99, has been added to the store Pacific Branch
+2022-01-11 13:23:20.067 -05:00 [INF] The product Banana has been updated with a description of cool, price of 99.00, and a quantity of 79
+2022-01-11 13:23:20.311 -05:00 [INF] A product order of 20 Bananas has been placed with the ID of 777504200 to the user Jon's shopping cart
+2022-01-11 13:23:24.118 -05:00 [INF] The product Pixel 3 has been updated with a description of cool, price of 99.99, and a quantity of 64
+2022-01-11 13:23:24.361 -05:00 [INF] A product order of 3 Pixel 3s has been placed with the ID of 777504204 to the user Jon's shopping cart
+2022-01-11 13:23:38.211 -05:00 [INF] The user Jon has checked out and created a new store order with ID 91136 with a total amount of $2279.97
+2022-01-11 13:23:40.335 -05:00 [INF] An order has been added to the store Pacific Branch from the user Jon with a total amount of $2279.97
+2022-01-11 13:25:59.852 -05:00 [INF] A new store has been added with Name: Atlantic Branch, City: Charleston, State: SC, Address: 611 Open Farms Dr. and ID of 777504358
+2022-01-11 13:26:09.547 -05:00 [INF] The store Atlantic Branch with an ID of 777504358 has been deleted as well as all of its corresponding products in its inventory
+2022-01-11 13:26:37.754 -05:00 [INF] A new store has been added with Name: Atlantic Branch, City: Charleston, State: SC, Address: 611 Open Farms Dr and ID of 777504397
+2022-01-11 13:28:46.387 -05:00 [INF] The product MacBook Pro 15.4" with a price of 699.99 and a quantity of 10, has been added to the store Atlantic Branch
+2022-01-11 13:29:01.605 -05:00 [INF] The product MacBook Pro 15.4" has been updated with a description of Intel Core i7, 8GB RAM, 256GB SSD, price of 799.99, and a quantity of 12
+2022-01-11 13:30:21.258 -05:00 [INF] The product ThinkPad L450 14" [Refurbished] with a price of 9 and a quantity of 9, has been added to the store Atlantic Branch
+2022-01-11 13:30:27.126 -05:00 [INF] The product with an ID of 777504545 has been deleted from the store Atlantic Branch}
+2022-01-11 13:31:21.937 -05:00 [INF] The product ThinkPad L450 14" with a price of 349.99 and a quantity of 8, has been added to the store Atlantic Branch
+2022-01-11 13:32:49.571 -05:00 [INF] The product HP EliteBook Folio 14" with a price of 299.99 and a quantity of 6, has been added to the store Atlantic Branch
+2022-01-11 13:34:05.836 -05:00 [INF] A new store has been added with Name: Pacifico Phone Retail and Repair, City: San Francisco, State: CA, Address: 101 California St and ID of 777504845
+2022-01-11 13:35:37.236 -05:00 [INF] The product OnePlus 9 Pro with a price of 9 and a quantity of 9, has been added to the store Pacifico Phone Retail and Repair
+2022-01-11 13:35:40.879 -05:00 [INF] The product with an ID of 777504866 has been deleted from the store Pacifico Phone Retail and Repair}
+2022-01-11 13:36:38.649 -05:00 [INF] The product IPhone X with a price of 429.99 and a quantity of 18, has been added to the store Pacifico Phone Retail and Repair
+2022-01-11 13:37:45.102 -05:00 [INF] The product Samsung Galaxy S10 with a price of 389.99 and a quantity of 10, has been added to the store Pacifico Phone Retail and Repair
+2022-01-11 13:38:51.239 -05:00 [INF] The product IPhone X has been updated with a description of [Pre-owned] 256GB Memory, Space Gray, price of 429.99, and a quantity of 18
+2022-01-11 13:39:03.568 -05:00 [INF] The product Samsung Galaxy S10 has been updated with a description of [Pre-owned] *Unlocked* 128GB Memory, Prism Black, price of 389.99, and a quantity of 10
+2022-01-11 13:39:52.561 -05:00 [INF] The product IPhone 8 with a price of 219.99 and a quantity of 14, has been added to the store Pacifico Phone Retail and Repair
+2022-01-11 13:41:19.877 -05:00 [INF] A new store has been added with Name: PopCo Used Hardware, City: Boston, State: MA, Address: 404 Penn Ave and ID of 777505279
+2022-01-11 13:42:48.504 -05:00 [INF] The product GIGABYTE GeForce RTX 2070 with a price of 879.99 and a quantity of 5, has been added to the store PopCo Used Hardware
+2022-01-11 13:43:35.937 -05:00 [INF] The product MSI GeForce RTX 2080 TI with a price of 1289.99 and a quantity of 4, has been added to the store PopCo Used Hardware
+2022-01-11 13:44:52.649 -05:00 [INF] The product AMD Ryzen 5 5600X 6-Core with a price of 289.99 and a quantity of 20, has been added to the store PopCo Used Hardware
+2022-01-11 13:46:16.038 -05:00 [INF] The product Intel Core i7-10700K 8 Cores with a price of 339.99 and a quantity of 18, has been added to the store PopCo Used Hardware
+2022-01-11 13:46:23.931 -05:00 [INF] The user Jon has been added to the database with the ID 777505582
+2022-01-11 13:46:38.209 -05:00 [INF] The product Intel Core i7-10700K 8 Cores has been updated with a description of [New] Desktop Processor up to 5.1Ghz unlocked LGA1200, price of 339.99, and a quantity of 16
+2022-01-11 13:46:38.323 -05:00 [INF] A product order of 2 Intel Core i7-10700K 8 Coress has been placed with the ID of 777505598 to the user Jon's shopping cart
+2022-01-11 13:46:43.055 -05:00 [INF] The product GIGABYTE GeForce RTX 2070 has been updated with a description of [Refurbished] 8GB GDDR6 PCI Express 3.0, price of 879.99, and a quantity of 4
+2022-01-11 13:46:43.166 -05:00 [INF] A product order of 1 GIGABYTE GeForce RTX 2070s has been placed with the ID of 777505603 to the user Jon's shopping cart
+2022-01-11 13:46:52.295 -05:00 [INF] The product Samsung Galaxy S10 has been updated with a description of [Pre-owned] *Unlocked* 128GB Memory, Prism Black, price of 389.99, and a quantity of 9
+2022-01-11 13:46:52.537 -05:00 [INF] A product order of 1 Samsung Galaxy S10s has been placed with the ID of 777505612 to the user Jon's shopping cart
+2022-01-11 13:47:04.433 -05:00 [INF] The product order with ID 777505603 has been edited with a new quantity of 99 for user Jon
+2022-01-11 13:47:04.542 -05:00 [INF] The product order with ID 777505603 has been edited with a new quantity of 1 for user Jon
+2022-01-11 13:47:07.387 -05:00 [INF] The product order with ID 777505603 has been edited with a new quantity of 2 for user Jon
+2022-01-11 13:47:08.292 -05:00 [INF] The product GIGABYTE GeForce RTX 2070 has been updated with a description of [Refurbished] 8GB GDDR6 PCI Express 3.0, price of 879.99, and a quantity of 3
+2022-01-11 13:47:15.568 -05:00 [INF] The product Samsung Galaxy S10 has been updated with a description of [Pre-owned] *Unlocked* 128GB Memory, Prism Black, price of 389.99, and a quantity of 10
+2022-01-11 13:47:15.825 -05:00 [INF] The product order with ID 777505612 has been deleted from the user Jon's shopping cart
+2022-01-11 13:47:28.267 -05:00 [INF] The product MacBook Pro 15.4" has been updated with a description of Intel Core i7, 8GB RAM, 256GB SSD, price of 799.99, and a quantity of 11
+2022-01-11 13:47:28.509 -05:00 [INF] A product order of 1 MacBook Pro 15.4"s has been placed with the ID of 777505648 to the user Jon's shopping cart
+2022-01-11 13:47:36.459 -05:00 [INF] The product Samsung Galaxy S10 has been updated with a description of [Pre-owned] *Unlocked* 128GB Memory, Prism Black, price of 389.99, and a quantity of 9
+2022-01-11 13:47:36.699 -05:00 [INF] A product order of 1 Samsung Galaxy S10s has been placed with the ID of 777505656 to the user Jon's shopping cart
+2022-01-11 13:47:45.408 -05:00 [INF] The user Jon has checked out and created a new store order with ID 852853 with a total amount of $3629.94
+2022-01-11 13:47:47.500 -05:00 [INF] An order has been added to the store PopCo Used Hardware from the user Jon with a total amount of $2439.96
+2022-01-11 13:47:48.713 -05:00 [INF] An order has been added to the store Atlantic Branch from the user Jon with a total amount of $799.99
+2022-01-11 13:47:49.763 -05:00 [INF] An order has been added to the store Pacifico Phone Retail and Repair from the user Jon with a total amount of $389.99
+2022-01-11 13:48:22.705 -05:00 [INF] The product MacBook Pro 15.4" has been updated with a description of Intel Core i7, 8GB RAM, 256GB SSD, price of 799.99, and a quantity of 9
+2022-01-11 13:48:22.924 -05:00 [INF] A product order of 2 MacBook Pro 15.4"s has been placed with the ID of 777505702 to the user Jon's shopping cart
+2022-01-11 13:48:27.532 -05:00 [INF] The product HP EliteBook Folio 14" has been updated with a description of [Refurbished] Intel Core i5, 8GB RAM, 128GB SSD, price of 299.99, and a quantity of 4
+2022-01-11 13:48:27.783 -05:00 [INF] A product order of 2 HP EliteBook Folio 14"s has been placed with the ID of 777505707 to the user Jon's shopping cart
+2022-01-11 13:48:36.505 -05:00 [INF] The product AMD Ryzen 5 5600X 6-Core has been updated with a description of [New] 12 Thread Unlocked Desktop Processor with Wraith Stealth Cooler, price of 289.99, and a quantity of 17
+2022-01-11 13:48:36.747 -05:00 [INF] A product order of 3 AMD Ryzen 5 5600X 6-Cores has been placed with the ID of 777505716 to the user Jon's shopping cart
+2022-01-11 13:48:44.413 -05:00 [INF] The user Jon has checked out and created a new store order with ID 330771 with a total amount of $3069.93
+2022-01-11 13:48:46.213 -05:00 [INF] An order has been added to the store Atlantic Branch from the user Jon with a total amount of $2199.96
+2022-01-11 13:48:47.313 -05:00 [INF] An order has been added to the store PopCo Used Hardware from the user Jon with a total amount of $869.97
+2022-01-11 13:49:04.746 -05:00 [INF] The user Bella has been added to the database with the ID 777505741
+2022-01-11 13:49:15.036 -05:00 [INF] The product AMD Ryzen 5 5600X 6-Core has been updated with a description of [New] 12 Thread Unlocked Desktop Processor with Wraith Stealth Cooler, price of 289.99, and a quantity of 15
+2022-01-11 13:49:15.146 -05:00 [INF] A product order of 2 AMD Ryzen 5 5600X 6-Cores has been placed with the ID of 777505755 to the user Bella's shopping cart
+2022-01-11 13:49:19.019 -05:00 [INF] The product Intel Core i7-10700K 8 Cores has been updated with a description of [New] Desktop Processor up to 5.1Ghz unlocked LGA1200, price of 339.99, and a quantity of 14
+2022-01-11 13:49:19.244 -05:00 [INF] A product order of 2 Intel Core i7-10700K 8 Coress has been placed with the ID of 777505759 to the user Bella's shopping cart
+2022-01-11 13:49:26.279 -05:00 [INF] The product IPhone X has been updated with a description of [Pre-owned] 256GB Memory, Space Gray, price of 429.99, and a quantity of 16
+2022-01-11 13:49:26.519 -05:00 [INF] A product order of 2 IPhone Xs has been placed with the ID of 777505766 to the user Bella's shopping cart
+2022-01-11 13:49:31.108 -05:00 [INF] The product IPhone 8 has been updated with a description of [Pre-owned] *Unlocked* 64GB Memory, Space Gray, price of 219.99, and a quantity of 13
+2022-01-11 13:49:31.216 -05:00 [INF] A product order of 1 IPhone 8s has been placed with the ID of 777505771 to the user Bella's shopping cart
+2022-01-11 13:49:39.780 -05:00 [INF] The user Bella has checked out and created a new store order with ID 935875 with a total amount of $2339.93
+2022-01-11 13:49:41.681 -05:00 [INF] An order has been added to the store PopCo Used Hardware from the user Bella with a total amount of $1259.96
+2022-01-11 13:49:42.869 -05:00 [INF] An order has been added to the store Pacifico Phone Retail and Repair from the user Bella with a total amount of $1079.97
+2022-01-11 13:52:19.480 -05:00 [INF] The product MacBook Pro 15.4" has been updated with a description of Intel Core i7, 8GB RAM, 256GB SSD, price of 799.99, and a quantity of 2
+2022-01-11 13:52:19.588 -05:00 [INF] A product order of 7 MacBook Pro 15.4"s has been placed with the ID of 777505939 to the user Jon's shopping cart
+2022-01-11 13:52:24.641 -05:00 [INF] The product HP EliteBook Folio 14" has been updated with a description of [Refurbished] Intel Core i5, 8GB RAM, 128GB SSD, price of 299.99, and a quantity of 2
+2022-01-11 13:52:24.877 -05:00 [INF] A product order of 2 HP EliteBook Folio 14"s has been placed with the ID of 777505944 to the user Jon's shopping cart
+2022-01-11 13:52:56.638 -05:00 [INF] The product ThinkPad L450 14" has been updated with a description of [Refurbished] Intel Core i5 2.3Ghz-5300U, 8GB RAM, 256GB SSD, price of 349.99, and a quantity of 4
+2022-01-11 13:52:56.763 -05:00 [INF] A product order of 4 ThinkPad L450 14"s has been placed with the ID of 777505976 to the user Bella's shopping cart
+2022-01-11 13:53:22.648 -05:00 [INF] The product with an ID of 777504629 has been deleted from the store Atlantic Branch}
+2022-01-11 13:53:47.259 -05:00 [INF] The product MacBook Pro 15.4" has been updated with a description of Intel Core i7, 8GB RAM, 256GB SSD, price of 799.99, and a quantity of 1
+2022-01-11 13:53:47.367 -05:00 [INF] A product order of 1 MacBook Pro 15.4"s has been placed with the ID of 777506027 to the user Bella's shopping cart
+2022-01-11 13:53:51.033 -05:00 [INF] The product HP EliteBook Folio 14" has been updated with a description of [Refurbished] Intel Core i5, 8GB RAM, 128GB SSD, price of 299.99, and a quantity of 1
+2022-01-11 13:53:51.295 -05:00 [INF] A product order of 1 HP EliteBook Folio 14"s has been placed with the ID of 777506031 to the user Bella's shopping cart
+2022-01-11 13:54:06.433 -05:00 [INF] The store Atlantic Branch with an ID of 777504397 has been deleted as well as all of its corresponding products in its inventory
+2022-01-11 13:54:57.673 -05:00 [INF] A new store has been added with Name: Atlantic Hardware Hub, City: Charleston, State: SC, Address: 201 King St and ID of 777506097
+2022-01-11 13:56:03.060 -05:00 [INF] The product Lenovo ThinkPad 14" with a price of 659.99 and a quantity of 10, has been added to the store Atlantic Hardware Hub
+2022-01-11 13:57:06.021 -05:00 [INF] The product Apple MacBook Air 13.3" with a price of 489.99 and a quantity of 5, has been added to the store Atlantic Hardware Hub
+2022-01-11 13:57:55.925 -05:00 [INF] The product Apple MacBook Pro 15.4" with a price of 709.99 and a quantity of 4, has been added to the store Atlantic Hardware Hub
+2022-01-11 16:31:30.703 -05:00 [INF] The product Lenovo ThinkPad 14" has been updated with a description of [Refurbished] Intel Core i7, 16 GB RAM, 512GB SSD, price of 659.99, and a quantity of 8
+2022-01-11 16:31:30.947 -05:00 [INF] A product order of 2 Lenovo ThinkPad 14"s has been placed with the ID of 777515490 to the user Jon's shopping cart
+2022-01-11 16:31:34.741 -05:00 [INF] The product Apple MacBook Air 13.3" has been updated with a description of [Pre-owned] Intel Core i5, 8GB RAM, 128GB SSD, price of 489.99, and a quantity of 4
+2022-01-11 16:31:34.983 -05:00 [INF] A product order of 1 Apple MacBook Air 13.3"s has been placed with the ID of 777515494 to the user Jon's shopping cart
+2022-01-11 16:31:44.126 -05:00 [INF] The product AMD Ryzen 5 5600X 6-Core has been updated with a description of [New] 12 Thread Unlocked Desktop Processor with Wraith Stealth Cooler, price of 289.99, and a quantity of 14
+2022-01-11 16:31:44.404 -05:00 [INF] A product order of 1 AMD Ryzen 5 5600X 6-Cores has been placed with the ID of 777515504 to the user Jon's shopping cart
+2022-01-11 16:31:54.424 -05:00 [INF] The product order with ID 777515504 has been edited with a new quantity of 2 for user Jon
+2022-01-11 16:31:55.353 -05:00 [INF] The product AMD Ryzen 5 5600X 6-Core has been updated with a description of [New] 12 Thread Unlocked Desktop Processor with Wraith Stealth Cooler, price of 289.99, and a quantity of 13
+2022-01-11 16:32:01.802 -05:00 [INF] The user Jon has checked out and created a new store order with ID 798797 with a total amount of $2389.95
+2022-01-11 16:32:03.725 -05:00 [INF] An order has been added to the store Atlantic Hardware Hub from the user Jon with a total amount of $1809.97
+2022-01-11 16:32:04.728 -05:00 [INF] An order has been added to the store PopCo Used Hardware from the user Jon with a total amount of $579.98
+2022-01-11 18:25:05.277 -05:00 [INF] The user Alexander has been added to the database with the ID 777522304
+2022-01-11 18:25:59.285 -05:00 [INF] A new store has been added with Name: Banana Town, City: SF, State: CA, Address: 211 Banana Lane and ID of 777522359
+2022-01-11 18:26:35.861 -05:00 [INF] The product Banana with a price of 99.99 and a quantity of 9999, has been added to the store Banana Town
+2022-01-11 18:26:53.127 -05:00 [INF] The product Turkey with a price of 899.99 and a quantity of 100, has been added to the store Banana Town
+2022-01-11 18:27:23.400 -05:00 [INF] The product Turkey has been updated with a description of ham, price of 899.99, and a quantity of 80
+2022-01-11 18:27:23.509 -05:00 [INF] A product order of 20 Turkeys has been placed with the ID of 777522443 to the user Alexander's shopping cart
+2022-01-11 18:27:32.372 -05:00 [INF] The product Banana has been updated with a description of nice, price of 99.99, and a quantity of 9909
+2022-01-11 18:27:32.595 -05:00 [INF] A product order of 90 Bananas has been placed with the ID of 777522452 to the user Alexander's shopping cart
+2022-01-11 18:27:47.812 -05:00 [INF] The product order with ID 777522452 has been edited with a new quantity of 1000 for user Alexander
+2022-01-11 18:27:48.720 -05:00 [INF] The product Banana has been updated with a description of nice, price of 99.99, and a quantity of 8999
+2022-01-11 18:27:54.833 -05:00 [INF] The product order with ID 777522452 has been edited with a new quantity of 10000000 for user Alexander
+2022-01-11 18:27:55.051 -05:00 [INF] The product order with ID 777522452 has been edited with a new quantity of 1000 for user Alexander
+2022-01-11 18:27:59.026 -05:00 [INF] The product order with ID 777522452 has been edited with a new quantity of 60 for user Alexander
+2022-01-11 18:28:00.048 -05:00 [INF] The product Banana has been updated with a description of nice, price of 99.99, and a quantity of 9939
+2022-01-11 18:28:47.089 -05:00 [INF] The product with an ID of 777522387 has been deleted from the store Banana Town}
+2022-01-11 18:29:06.698 -05:00 [INF] The user Alexander has checked out and created a new store order with ID 112969 with a total amount of $17999.80
+2022-01-11 18:29:08.704 -05:00 [INF] An order has been added to the store Banana Town from the user Alexander with a total amount of $17999.80
+2022-01-11 18:29:41.063 -05:00 [INF] The product Apple MacBook Air 13.3" has been updated with a description of [Pre-owned] Intel Core i5, 8GB RAM, 128GB SSD, price of 489.99, and a quantity of 2
+2022-01-11 18:29:41.304 -05:00 [INF] A product order of 2 Apple MacBook Air 13.3"s has been placed with the ID of 777522581 to the user Alexander's shopping cart
+2022-01-11 18:29:49.299 -05:00 [INF] The product Apple MacBook Pro 15.4" has been updated with a description of [Pre-owned] Intel Core i7, 8 GB RAM, 256GB SSD, price of 709.99, and a quantity of 3
+2022-01-11 18:29:49.537 -05:00 [INF] A product order of 1 Apple MacBook Pro 15.4"s has been placed with the ID of 777522589 to the user Alexander's shopping cart
+2022-01-11 18:29:56.991 -05:00 [INF] The product Turkey has been updated with a description of ham, price of 899.99, and a quantity of 60
+2022-01-11 18:29:57.217 -05:00 [INF] A product order of 20 Turkeys has been placed with the ID of 777522596 to the user Alexander's shopping cart
+2022-01-11 18:30:05.617 -05:00 [INF] The user Alexander has checked out and created a new store order with ID 795226 with a total amount of $19689.77
+2022-01-11 18:30:07.421 -05:00 [INF] An order has been added to the store Atlantic Hardware Hub from the user Alexander with a total amount of $1689.97
+2022-01-11 18:30:08.444 -05:00 [INF] An order has been added to the store Banana Town from the user Alexander with a total amount of $17999.80
+2022-01-11 18:30:45.071 -05:00 [INF] The store Banana Town with an ID of 777522359 has been deleted as well as all of its corresponding products in its inventory
+2022-01-12 11:36:33.307 -05:00 [INF] The product Samsung Galaxy S10 has been updated with a description of [Pre-owned] *Unlocked* 128GB Memory, Prism Black, price of 389.99, and a quantity of 6
+2022-01-12 11:36:33.426 -05:00 [INF] A product order of 3 Samsung Galaxy S10s has been placed with the ID of 777584193 to the user Jon's shopping cart
+2022-01-12 11:36:46.683 -05:00 [INF] The product IPhone 8 has been updated with a description of [Pre-owned] *Unlocked* 64GB Memory, Space Gray, price of 219.99, and a quantity of 3
+2022-01-12 11:36:46.793 -05:00 [INF] A product order of 10 IPhone 8s has been placed with the ID of 777584206 to the user Jon's shopping cart
+2022-01-12 11:37:00.976 -05:00 [INF] The product Apple MacBook Pro 15.4" has been updated with a description of [Pre-owned] Intel Core i7, 8 GB RAM, 256GB SSD, price of 709.99, and a quantity of 1
+2022-01-12 11:37:01.092 -05:00 [INF] A product order of 2 Apple MacBook Pro 15.4"s has been placed with the ID of 777584220 to the user Jon's shopping cart
+2022-01-12 11:37:06.577 -05:00 [INF] The product Lenovo ThinkPad 14" has been updated with a description of [Refurbished] Intel Core i7, 16 GB RAM, 512GB SSD, price of 659.99, and a quantity of 7
+2022-01-12 11:37:06.827 -05:00 [INF] A product order of 1 Lenovo ThinkPad 14"s has been placed with the ID of 777584226 to the user Jon's shopping cart
+2022-01-12 11:37:27.024 -05:00 [INF] The product order with ID 777584226 has been edited with a new quantity of 100 for user Jon
+2022-01-12 11:37:27.132 -05:00 [INF] The product order with ID 777584226 has been edited with a new quantity of 1 for user Jon
+2022-01-12 11:37:36.627 -05:00 [INF] The product order with ID 777584226 has been edited with a new quantity of 8 for user Jon
+2022-01-12 11:37:37.548 -05:00 [INF] The product Lenovo ThinkPad 14" has been updated with a description of [Refurbished] Intel Core i7, 16 GB RAM, 512GB SSD, price of 659.99, and a quantity of 0
+2022-01-12 11:37:42.905 -05:00 [INF] The user Jon has checked out and created a new store order with ID 340563 with a total amount of $10069.77
+2022-01-12 11:37:45.335 -05:00 [INF] An order has been added to the store Pacifico Phone Retail and Repair from the user Jon with a total amount of $3369.87
+2022-01-12 11:37:46.638 -05:00 [INF] An order has been added to the store Atlantic Hardware Hub from the user Jon with a total amount of $6699.90
+2022-01-12 11:38:35.691 -05:00 [INF] The user Betty has been added to the database with the ID 777584313
+2022-01-12 11:38:52.611 -05:00 [INF] The product Apple MacBook Pro 15.4" has been updated with a description of [Pre-owned] Intel Core i7, 8 GB RAM, 256GB SSD, price of 709.99, and a quantity of 0
+2022-01-12 11:38:52.718 -05:00 [INF] A product order of 1 Apple MacBook Pro 15.4"s has been placed with the ID of 777584332 to the user Betty's shopping cart
+2022-01-12 11:39:42.068 -05:00 [INF] The product IPhone X has been updated with a description of [Pre-owned] 256GB Memory, Space Gray, price of 439.99, and a quantity of 10
+2022-01-12 11:39:52.480 -05:00 [INF] The product with an ID of 777505148 has been deleted from the store Pacifico Phone Retail and Repair}
+2022-01-12 11:40:34.107 -05:00 [INF] The store Atlantic Hardware Hub with an ID of 777506097 has been deleted as well as all of its corresponding products in its inventory
+2022-01-12 11:41:30.619 -05:00 [INF] A new store has been added with Name: Midwest Branch, City: Cincinatti, State: OH, Address: 101 King St and ID of 777584490
+2022-01-12 11:41:57.870 -05:00 [INF] The product Iphone 12 Pro with a price of 999.99 and a quantity of 6, has been added to the store Midwest Branch
