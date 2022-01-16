@@ -5,6 +5,7 @@
 
 
 # DB
+appsettings.Development.json
 connectionString.txt
 # User-specific files
 *.rsuser
