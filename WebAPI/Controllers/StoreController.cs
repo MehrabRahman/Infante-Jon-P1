@@ -49,7 +49,7 @@ namespace WebAPI.Controllers
             return Created("Successfully added", storeToAdd);
         }
 
-        // DELETE api/<StoreControllerr>/id
+        // DELETE api/<StoreController>/id
         // Deletes a store from the database
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)

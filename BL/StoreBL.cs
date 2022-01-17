@@ -30,13 +30,38 @@ public class StoreBL : ISBL {
         return _dl.GetStoreIndexByID(storeID);
         }
     /// <summary>
+    /// Deletes the current selected store
+    /// </summary>
+    /// <param name="storeID">Current store ID</param>
+    public void DeleteStore(int storeID)
+    {
+        _dl.DeleteStore(storeID);
+    }
+    /// <summary>
+    /// Adds a current store to the list of stores
+    /// </summary>
+    /// <param name="storeToAdd">Store object to add to the list</param>
+    public void AddStore(Store storeToAdd)
+    {
+        _dl.AddStore(storeToAdd);
+    }
+    /// <summary>
+    /// Gets all the products of the current store selected
+    /// </summary>
+    /// <param name="storeID">The selected store's ID</param>
+    /// <returns>A list of products</returns>
+    public List<Product> GetAllProducts(int storeID)
+    {
+        return _dl.GetAllProducts(storeID);
+    }
+
+    /// <summary>
     /// Gets the current product by the product ID
     /// </summary>
-    /// <param name="storeID">Current storeID</param>
     /// <param name="prodID">current Product ID</param>
     /// <returns>Selected Product Object</returns>
-    public Product GetProductByID(int storeID, int prodID){
-        return _dl.GetProductByID(storeID, prodID);
+    public Product GetProductByID(int prodID){
+        return _dl.GetProductByID(prodID);
     }
     /// <summary>
     /// Gets the current product index by product ID
@@ -47,20 +72,7 @@ public class StoreBL : ISBL {
     public int GetProductIndexByID(int storeID, int prodID){
         return _dl.GetProductIndexByID(storeID, prodID);
     }
-    /// <summary>
-    /// Deletes the current selected store
-    /// </summary>
-    /// <param name="storeID">Current store ID</param>
-    public void DeleteStore(int storeID){
-        _dl.DeleteStore(storeID);
-    }
-    /// <summary>
-    /// Adds a current store to the list of stores
-    /// </summary>
-    /// <param name="storeToAdd">Store object to add to the list</param>
-    public void AddStore(Store storeToAdd){
-        _dl.AddStore(storeToAdd);
-    }
+
     /// <summary>
     /// Adds a product to the current selected store
     /// </summary>
@@ -72,22 +84,20 @@ public class StoreBL : ISBL {
     /// <summary>
     /// Deletes a product from the current selected store and product index
     /// </summary>
-    /// <param name="storeID">ID of the current store</param>
-    /// <param name="prodIndex">Product's current index</param>
-    public void DeleteProduct(int storeID, int prodIndex){
-        _dl.DeleteProduct(storeID, prodIndex);
+    /// <param name="prodID">Product's current D</param>
+    public void DeleteProduct(int prodID){
+        _dl.DeleteProduct(prodID);
 
     }
     /// <summary>
     /// Edits and updates the product selected in the current store
     /// </summary>
-    /// <param name="storeID">ID of the current store</param>
     /// <param name="prodID">ID of the current product</param>
     /// <param name="description">Product's new description</param>
     /// <param name="price">Product's new price</param>
     /// <param name="quantity">Product's new quantity</param>
-    public void EditProduct(int storeIndex, int prodIndex, string description, decimal price, int quantity){
-        _dl.EditProduct(storeIndex, prodIndex, description, price, quantity);
+    public void EditProduct(int prodID, string description, decimal price, int quantity){
+        _dl.EditProduct(prodID, description, price, quantity);
     }
     /// <summary>
     /// Takes the current lists of product orders, packages them in a store order and adds to list

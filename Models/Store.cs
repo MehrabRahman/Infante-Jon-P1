@@ -11,7 +11,13 @@ public class Store {
         this.City = row["City"].ToString() ?? "";
         this.State = row["State"].ToString() ?? "";
     }
-    public int? ID { get; private set; }
+    [System.Text.Json.Serialization.JsonIgnore]
+    public int? ID { get;set; }
+    [JsonProperty("ID")]
+    public int? storeID
+    {
+        get { return ID; }
+    }
     [Required]
     public string? Name { get; set;}
     [Required]

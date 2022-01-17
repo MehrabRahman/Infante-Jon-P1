@@ -11,15 +11,17 @@ public interface ISRepo{
     
     int GetStoreIndexByID(int storeID);
 
-    Product GetProductByID(int storeID, int prodID);
+    Product GetProductByID(int prodID);
+
+    List<Product> GetAllProducts(int storeID);
 
     int GetProductIndexByID(int storeID, int prodID);
 
     void AddProduct(int storeID, Product productToAdd);
 
-    void DeleteProduct(int storeID, int prodID);
+    void DeleteProduct(int prodID);
 
-    void EditProduct(int storeID, int prodID, string description, decimal price, int quantity);
+    void EditProduct( int prodID, string description, decimal price, int quantity);
     
     void AddStoreOrder(int storeID, StoreOrder storeOrderToAdd);
 

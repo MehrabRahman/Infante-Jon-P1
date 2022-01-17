@@ -15,10 +15,20 @@ public class Product {
         Quantity = (int) r["Quantity"];
 }
 
+    [System.Text.Json.Serialization.JsonIgnore]
     public int? ID { get; set; }
-
+    [JsonProperty("ID")]
+    public int? prodID
+    {
+        get { return ID; }
+    }
+    [System.Text.Json.Serialization.JsonIgnore]
     public int? storeID {get; set; }
-    
+    [JsonProperty("storeID")]
+    public int? StoreID
+    {
+        get { return storeID; }
+    }
     public string? Name { get; set;}
 
     public string? Description {get; set;}

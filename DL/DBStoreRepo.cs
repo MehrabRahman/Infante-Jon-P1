@@ -147,13 +147,33 @@ public class DBStoreRepo : ISRepo {
     /// <returns>Store object</returns>
     public Store GetStoreByID(int storeID){
         List<Store> allStores = GetAllStores();
-        foreach(Store store in allStores){
-            if(store.ID == storeID){
+        foreach (Store store in allStores)
+        {
+            if (store.ID == storeID)
+            {
                 return store;
             }
         }
         //Cant find any stores with that id
         return new Store();
+        /*        string query = "SELECT * From Store WHERE ID = @ID";
+                using SqlConnection connection = new SqlConnection(_connectionString);
+                connection.Open();
+                using SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@ID", storeID);
+
+                using SqlDataReader reader = cmd.ExecuteReader();
+                Store selectedStore = new Store();
+                if (reader.Read())
+                {
+                    selectedStore.ID = reader.GetInt32(0);
+                    selectedStore.Name = reader.GetString(1);
+                    selectedStore.Address = reader.GetString(2);
+                    selectedStore.City = reader.GetString(3);
+                    selectedStore.State = reader.GetString(4);
+                }
+                connection.Close();
+                return selectedStore;*/
     }
 
     /// <summary>
@@ -169,8 +189,11 @@ public class DBStoreRepo : ISRepo {
         string sqlCmd = "INSERT INTO Product (ID, storeID, Name, Description, Price, Quantity) VALUES (@ID, @storeID, @name, @desc, @price, @qty)"; 
         using SqlCommand cmdAddProduct = new SqlCommand(sqlCmd, connection);
         //Adding paramaters
-        cmdAddProduct.Parameters.AddWithValue("@ID", productToAdd.ID);
-        cmdAddProduct.Parameters.AddWithValue("@storeID", productToAdd.storeID);
+        //Making new random number for id
+        Random rnd = new Random();
+        int id = rnd.Next(1000000);
+        cmdAddProduct.Parameters.AddWithValue("@ID", id);
+        cmdAddProduct.Parameters.AddWithValue("@storeID", storeID);
         cmdAddProduct.Parameters.AddWithValue("@name", productToAdd.Name);
         cmdAddProduct.Parameters.AddWithValue("@desc", productToAdd.Description);
         cmdAddProduct.Parameters.AddWithValue("@price", productToAdd.Price);
@@ -180,30 +203,74 @@ public class DBStoreRepo : ISRepo {
         connection.Close();
         Log.Information("The product {productname} with a price of {price} and a quantity of {quantity}, has been added to the store {storename}", productToAdd.Name, productToAdd.Price, productToAdd.Quantity,  GetStoreByID(storeID).Name);
     }
+    /// <summary>
+    /// Gets all the current products of a specified store in the database
+    /// </summary>
+    /// <param name="storeID"></param>
+    /// <returns>A list of products</returns>
+    public List<Product> GetAllProducts(int storeID)
+    {
+        string selectProdCmd = "SELECT * FROM Product WHERE StoreID = @storeID";
+        SqlConnection connection = new SqlConnection(_connectionString);
+        SqlCommand cmd = new SqlCommand(selectProdCmd, connection);
+        cmd.Parameters.AddWithValue("@storeID", storeID);
+
+        DataSet productSet = new DataSet();
+
+        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+        adapter.Fill(productSet, "product");
+
+        DataTable productTable = productSet.Tables["product"]!;
+
+        List<Product> allProducts = new List<Product>();
+        foreach (DataRow row in productTable.Rows)
+        {
+            allProducts.Add(new Product
+            {
+                ID = (int)row["ID"],
+                storeID = (int)row["StoreID"],
+                Name = (string)row["Name"] ?? "",
+                Description = (string)row["Description"] ?? "",
+                Price = (decimal)row["Price"],
+                Quantity = (int)row["Quantity"]
+            });
+        }
+        return allProducts;
+    }
 
     /// <summary>
     /// Returns a product by the ID given
     /// </summary>
-    /// <param name="storeID">current store ID</param>
     /// <param name="prodID">product object ID selected</param>
     /// <returns>Product Object</returns>
-    public Product GetProductByID(int storeID, int prodID){
-        Store currStore = GetStoreByID(storeID);
-        foreach(Product product in currStore.Products!){
-            if(product.ID == prodID){
-                return product;
-            }
+    public Product GetProductByID(int prodID){
+        string query = "SELECT * From Product WHERE ID = @ID";
+        using SqlConnection connection = new SqlConnection(_connectionString);
+        connection.Open();
+        using SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@ID", prodID);
+
+        using SqlDataReader reader = cmd.ExecuteReader();
+        Product selectedProduct = new Product();
+        if (reader.Read())
+        {
+            selectedProduct.ID = reader.GetInt32(0);
+            selectedProduct.storeID= reader.GetInt32(1);
+            selectedProduct.Name = reader.GetString(2);
+            selectedProduct.Description = reader.GetString(3);
+            selectedProduct.Price = reader.GetDecimal(4);
+            selectedProduct.Quantity = reader.GetInt32(5);
         }
-        //Cant find any Products with that id
-        return new Product();
+        connection.Close();
+        return selectedProduct;
     }
 
     /// <summary>
     /// Delets a product from the database
     /// </summary>
-    /// <param name="storeID">current store ID</param>
     /// <param name="prodID">selected product ID</param>
-    public void DeleteProduct(int storeID, int prodID){
+    public void DeleteProduct(int prodID){
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
         //Deletes all the products orders of the current store
@@ -222,18 +289,17 @@ public class DBStoreRepo : ISRepo {
         //Deletes the current product selected
         cmdDelProd.ExecuteNonQuery();
         connection.Close();
-        Log.Information("The product with an ID of {productID} has been deleted from the store {storename}}", prodID, GetStoreByID(storeID).Name);
+        Log.Information("The product with an ID of {productID} has been deleted from the store {storename}}", prodID, GetStoreByID((int)GetProductByID(prodID).StoreID!).Name);
     }
 
     /// <summary>
     /// Edits a product and saves it back to the database
     /// </summary>
-    /// <param name="storeID">current store ID</param>
     /// <param name="prodID">selected product ID</param>
     /// <param name="description">New description to update</param>
     /// <param name="price">New price entered to update</param>
     /// <param name="quantity">New quantity to update</param>
-    public void EditProduct(int storeID, int prodID, string description, decimal price, int quantity){
+    public void EditProduct(int prodID, string description, decimal price, int quantity){
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
         //Updates a single product by id, and passed in requirements
@@ -247,7 +313,7 @@ public class DBStoreRepo : ISRepo {
         //Edits the current product selected
         cmdEditProd.ExecuteNonQuery();
         connection.Close();
-        Log.Information("The product {productname} has been updated with a description of {description}, price of {price}, and a quantity of {quantity}", GetProductByID(storeID, prodID).Name, description, price, quantity);
+        Log.Information("The product {productname} has been updated with a description of {description}, price of {price}, and a quantity of {quantity}", GetProductByID(prodID).Name, description, price, quantity);
 
     }
 
