@@ -20,7 +20,10 @@ public class DBStoreRepo : ISRepo {
         string sqlCmd = "INSERT INTO Store (ID, Address, Name, City, State) VALUES (@ID, @address, @name, @city, @state)"; 
         using SqlCommand cmdAddStore = new SqlCommand(sqlCmd, connection);
         //Adding paramaters
-        cmdAddStore.Parameters.AddWithValue("@ID", storeToAdd.ID);
+        //Making new random number for id
+        Random rnd = new Random();
+        int id = rnd.Next(1000000);
+        cmdAddStore.Parameters.AddWithValue("@ID", id);
         cmdAddStore.Parameters.AddWithValue("@address", storeToAdd.Address);
         cmdAddStore.Parameters.AddWithValue("@name", storeToAdd.Name);
         cmdAddStore.Parameters.AddWithValue("@city", storeToAdd.City);

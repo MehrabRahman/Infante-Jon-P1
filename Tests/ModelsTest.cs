@@ -104,7 +104,6 @@ public class ModelsTest{
     public void StoreShouldSetValue(){
         //Arrange
         Store testStore = new Store();
-        int ID = 5605045;
         string name = "Atlantic Branch";
         string address = "500 Seven Farms Dr";
         string city = "Charleston";
@@ -113,7 +112,6 @@ public class ModelsTest{
         List<StoreOrder> allOrders = new List<StoreOrder>();
 
         //Act
-        testStore.ID = ID;
         testStore.Name = name;
         testStore.Address = address;
         testStore.City = city;
@@ -122,7 +120,6 @@ public class ModelsTest{
         testStore.AllOrders = allOrders;
 
         //Assert
-        Assert.Equal(ID, testStore.ID);
         Assert.Equal(name, testStore.Name);
         Assert.Equal(address, testStore.Address);
         Assert.Equal(city, testStore.City);
