@@ -44,6 +44,16 @@ public class UserBL : IUBL {
         
     }
     /// <summary>
+    /// Validates if the user has entered the correct username and password
+    /// </summary>
+    /// <param name="username">username entered</param>
+    /// <param name="password">password entered</param>
+    /// <returns>Returns true if a valid username and password has been found, false if invalid password</returns>
+    public bool LoginUser(string username, string password)
+    {
+        return _dl.LoginUser(username, password);
+    }
+    /// <summary>
     /// Adds a product order to the user's shopping list
     /// </summary>
     /// <param name="currUser">Current user [object]</param>

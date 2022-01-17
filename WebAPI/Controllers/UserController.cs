@@ -7,7 +7,7 @@ using DL;
 using CustomExceptions;
 
 namespace WebAPI.Controllers
-{    
+{
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : Controller
@@ -56,6 +56,27 @@ namespace WebAPI.Controllers
                 return Conflict(ex.Message);
             }
 
+        }
+        // GET: api/<UserController>/username
+        // Returns all the users in the database
+        [HttpGet("{username}/{password}")]
+        public ActionResult<User> LoginUser(string username, string password)
+        {
+            User currUser = _iubl.GetCurrentUserByUsername(username);
+            if (currUser.ID == null)
+            {
+                //No username found that matched
+                return NoContent();
+            }
+
+            if (_iubl.LoginUser(username, password))
+            {
+                //Login information correct
+                return Ok(currUser);
+            }
+            //Invalid password
+            return Unauthorized();
+            
         }
     }
 }

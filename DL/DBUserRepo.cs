@@ -135,6 +135,22 @@ public class DBUserRepo : IURepo {
         //User not found
         return new User();
     }
+    /// <summary>
+    /// Checks if a user has entered a valid username and password
+    /// </summary>
+    /// <param name="username">username entered</param>
+    /// <param name="password">password enetered</param>
+    /// <returns>A boolean value true if logged in, false if invalid password</returns>
+    public bool LoginUser(string username, string password)
+    {
+        User currUser = GetCurrentUserByUsername(username);
+        //Hashes the entered password and checks if it matches the user's hashed password
+        if (PasswordHash.VeryifyHashedPassword(password, currUser.Password!))
+        {
+            return true;
+        }
+        return false;
+    }
 
     /// <summary>
     /// Adds a product order to the user's shopping cart inside the database

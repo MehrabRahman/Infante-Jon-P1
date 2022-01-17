@@ -10,6 +10,7 @@ public interface IURepo {
     bool IsDuplicate(string username);
 
     User GetCurrentUserByUsername(string username);
+    bool LoginUser(string username, string password);
 
     int GetCurrentUserIndexByID(int userID);
 

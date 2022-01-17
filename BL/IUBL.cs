@@ -7,7 +7,9 @@ public interface IUBL{
     User GetCurrentUserByUsername(string username);
     
     int GetCurrentUserIndexByID(int userID);
-    
+    bool LoginUser(string username, string password);
+
+
     void AddProductOrder(User currUser, ProductOrder currProdOrder);       
     
     void EditProductOrder(User currUser, int prodOrderID, int quantity, decimal TotalPrice, int storeOrderID, int userOrderID);
