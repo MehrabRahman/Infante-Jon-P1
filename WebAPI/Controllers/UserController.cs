@@ -1,83 +1,61 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using Models;
+using BL;
+using DL;
+using CustomExceptions;
 
 namespace WebAPI.Controllers
-{
+{    
+    [Route("api/[controller]")]
+    [ApiController]
     public class UserController : Controller
     {
-        // GET: UserController
-        public ActionResult Index()
+        private IUBL _iubl;
+        public UserController(IUBL iubl)
         {
-            return View();
+            _iubl = iubl;
         }
-
-        // GET: UserController/Details/5
-        public ActionResult Details(int id)
+        // GET: api/<UserController>
+        // Returns all the users in the database
+        [HttpGet]
+        public ActionResult<List<User>> GetUsers()
         {
-            return View();
+            List<User> allUsers = _iubl.GetAllUsers();
+            if (allUsers.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(allUsers);
         }
-
-        // GET: UserController/Create
-        public ActionResult Create()
+        // GET api/<UserController>/username
+        // Returns a single user with the matching username
+        [HttpGet("{username}")]
+        public ActionResult<User> GetUserByUsername(string username)
         {
-            return View();
+            User user = _iubl.GetCurrentUserByUsername(username);
+            if (user.ID == null)
+            {
+                return NoContent();
+            }
+            return Ok(user);
         }
-
-        // POST: UserController/Create
+        // POST api/<UserController>
+        // Add a user to the database
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Post([FromBody] User userToAdd)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _iubl.AddUser(userToAdd);
+                return Created("Successfully added", userToAdd);
             }
-            catch
+            catch (DuplicateRecordException ex)
             {
-                return View();
+                return Conflict(ex.Message);
             }
-        }
 
-        // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: UserController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: UserController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

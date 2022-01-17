@@ -7,7 +7,9 @@ public interface IURepo {
 
     void AddUser(User userToAdd);
 
-    User GetCurrentUserByID(int userID);
+    bool IsDuplicate(string username);
+
+    User GetCurrentUserByUsername(string username);
 
     int GetCurrentUserIndexByID(int userID);
 

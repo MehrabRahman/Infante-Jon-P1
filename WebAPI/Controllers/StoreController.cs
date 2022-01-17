@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 using Models;
-using BL;
+using Microsoft.AspNetCore.Authorization;
 using DL;
 
 namespace WebAPI.Controllers
@@ -42,6 +41,7 @@ namespace WebAPI.Controllers
         }
         // POST api/<StoreController>
         // Add a store to the database
+        [Authorize]
         [HttpPost]
         public ActionResult Post([FromBody] Store storeToAdd)
         {
@@ -51,6 +51,7 @@ namespace WebAPI.Controllers
 
         // DELETE api/<StoreController>/id
         // Deletes a store from the database
+        [Authorize]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

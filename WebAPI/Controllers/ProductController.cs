@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Models;
 using BL;
 using DL;
@@ -34,6 +35,7 @@ namespace WebAPI.Controllers
         }
 
         // GET api/<ProductController>/id
+        // Gets a selected product and its details by ID
         [HttpGet("{id}")]
         public ActionResult<Product> GetProduct(int id)
         {
@@ -47,6 +49,7 @@ namespace WebAPI.Controllers
 
         // POST api/<ProductController>
         // Adds a product to the selected store
+        [Authorize]
         [HttpPost]
         public ActionResult Post(int storeID, [FromBody] Product productToAdd)
         {
@@ -63,12 +66,14 @@ namespace WebAPI.Controllers
         }
 
         // PUT api/<ProductController>/5
+        // Edits a current product and saves to the database
+        [Authorize]
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Product prodToEdit)
         {
             try
             {
-                _sbl.EditProduct(id, prodToEdit.Description!, prodToEdit.Price, (int)prodToEdit.Quantity!);
+                _sbl.EditProduct(id, prodToEdit.Name!, prodToEdit.Description!, prodToEdit.Price, (int)prodToEdit.Quantity!);
                 return Created("Successfully updated", prodToEdit);
             }
             catch (InputInvalidException ex)
@@ -78,6 +83,8 @@ namespace WebAPI.Controllers
         }
 
         // DELETE api/<ProductController>/5
+        // Delets a selected product from the database
+        [Authorize]
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

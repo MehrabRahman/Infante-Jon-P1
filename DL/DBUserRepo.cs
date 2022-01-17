@@ -19,14 +19,43 @@ public class DBUserRepo : IURepo {
         string sqlCmd = "INSERT INTO Customer (ID, Username, Password) VALUES (@ID, @username, @pass)"; 
         using SqlCommand cmdAddUser= new SqlCommand(sqlCmd, connection);
         //Adding paramaters
-        cmdAddUser.Parameters.AddWithValue("@ID", userToAdd.ID);
+        Random rnd = new Random();
+        int id = rnd.Next(1000000);
+        cmdAddUser.Parameters.AddWithValue("@ID", id);
         cmdAddUser.Parameters.AddWithValue("@username", userToAdd.Username);
-        cmdAddUser.Parameters.AddWithValue("@pass", userToAdd.Password);
+        string hashedPassword = PasswordHash.GenerateHashedPassword(userToAdd.Password!);
+        cmdAddUser.Parameters.AddWithValue("@pass", hashedPassword);
         //Executing command
         cmdAddUser.ExecuteNonQuery();
         connection.Close();
         //Log user has been added
         Log.Information("The user {user} has been added to the database with the ID {ID}", userToAdd.Username, userToAdd.ID);
+    }
+    /// <summary>
+    /// Search for the user for matching username
+    /// </summary>
+    /// <param name="username">username we are searching for a duplicate</param>
+    /// <returns>bool: true if there is duplicate, false if not</returns>
+    public bool IsDuplicate(string username)
+    {
+        string searchQuery = $"SELECT * FROM Customer WHERE Username= @username";
+
+        using SqlConnection connection = new SqlConnection(_connectionString);
+        using SqlCommand cmd = new SqlCommand(searchQuery, connection);
+        cmd.Parameters.AddWithValue("@username", username);
+
+
+        connection.Open();
+
+        using SqlDataReader reader = cmd.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+            //Query returned something, there exists a record that shares the same username 
+            return true;
+        }
+        //no record was returned. No duplicate record in the db
+        return false;
     }
 
     /// <summary>
@@ -92,14 +121,14 @@ public class DBUserRepo : IURepo {
     }
 
     /// <summary>
-    /// Gets the current user from the list of users by ID
+    /// Gets the current user from the list of users by name
     /// </summary>
-    /// <param name="userID">current user ID selected</param>
+    /// <param name="username">current usename selected</param>
     /// <returns>User Object</returns>
-    public User GetCurrentUserByID(int userID){
+    public User GetCurrentUserByUsername(string username){
         List<User> allUsers = GetAllUsers();
         foreach(User user in allUsers){
-            if(user.ID == userID){
+            if(user.Username == username){
                 return user;
             }
         }

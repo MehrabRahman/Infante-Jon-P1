@@ -1,4 +1,5 @@
 namespace BL;
+using CustomExceptions;
 
 public class StoreBL : ISBL {
     private ISRepo _dl;
@@ -79,7 +80,8 @@ public class StoreBL : ISBL {
     /// <param name="storeID">ID of the current store</param>
     /// <param name="productToAdd">product we are adding to the store</param>
     public void AddProduct(int storeID, Product productToAdd){
-        _dl.AddProduct(storeID, productToAdd);
+            _dl.AddProduct(storeID, productToAdd);
+
     }
     /// <summary>
     /// Deletes a product from the current selected store and product index
@@ -93,11 +95,12 @@ public class StoreBL : ISBL {
     /// Edits and updates the product selected in the current store
     /// </summary>
     /// <param name="prodID">ID of the current product</param>
+    /// <param name="name">Product's new name</param>
     /// <param name="description">Product's new description</param>
     /// <param name="price">Product's new price</param>
     /// <param name="quantity">Product's new quantity</param>
-    public void EditProduct(int prodID, string description, decimal price, int quantity){
-        _dl.EditProduct(prodID, description, price, quantity);
+    public void EditProduct(int prodID,string name, string description, decimal price, int quantity){
+        _dl.EditProduct(prodID,name, description, price, quantity);
     }
     /// <summary>
     /// Takes the current lists of product orders, packages them in a store order and adds to list

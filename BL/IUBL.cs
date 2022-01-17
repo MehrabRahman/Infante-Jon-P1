@@ -4,7 +4,7 @@ public interface IUBL{
     
     void AddUser(User userToAdd);
     
-    User GetCurrentUserByID(int userID);
+    User GetCurrentUserByUsername(string username);
     
     int GetCurrentUserIndexByID(int userID);
     

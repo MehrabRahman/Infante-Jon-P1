@@ -1,5 +1,6 @@
 
 namespace BL;
+using CustomExceptions;
 public class UserBL : IUBL {
     private IURepo _dl;
 
@@ -15,12 +16,12 @@ public class UserBL : IUBL {
 
     }
     /// <summary>
-    /// Returns a user by their id
+    /// Returns a user by their username
     /// </summary>
-    /// <param name="userID">User ID</param>
+    /// <param name="username">Username</param>
     /// <returns>User object</returns>
-    public User GetCurrentUserByID(int userID){
-        return _dl.GetCurrentUserByID(userID);
+    public User GetCurrentUserByUsername(string username){
+        return _dl.GetCurrentUserByUsername(username);
     }
     /// <summary>
     /// Returns a user's index by their ID
@@ -35,7 +36,12 @@ public class UserBL : IUBL {
     /// </summary>
     /// <param name="userToAdd">user object to add</param>
     public void AddUser(User userToAdd){
-        _dl.AddUser(userToAdd);
+        if (!_dl.IsDuplicate(userToAdd.Username!))
+        {
+            _dl.AddUser(userToAdd);
+        }
+        else throw new DuplicateRecordException("A user with that username already exists!");
+        
     }
     /// <summary>
     /// Adds a product order to the user's shopping list

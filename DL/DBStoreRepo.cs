@@ -271,6 +271,8 @@ public class DBStoreRepo : ISRepo {
     /// </summary>
     /// <param name="prodID">selected product ID</param>
     public void DeleteProduct(int prodID){
+        //Getting the store name by product id before we delete the product
+        string storeName = GetStoreByID((int)GetProductByID(prodID).StoreID!).Name!;
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
         //Deletes all the products orders of the current store
@@ -289,31 +291,33 @@ public class DBStoreRepo : ISRepo {
         //Deletes the current product selected
         cmdDelProd.ExecuteNonQuery();
         connection.Close();
-        Log.Information("The product with an ID of {productID} has been deleted from the store {storename}}", prodID, GetStoreByID((int)GetProductByID(prodID).StoreID!).Name);
+        Log.Information("The product with an ID of {productID} has been deleted from the store {storename}}", prodID, storeName);
     }
 
     /// <summary>
     /// Edits a product and saves it back to the database
     /// </summary>
     /// <param name="prodID">selected product ID</param>
+    /// <param name="name">New name to update</param>
     /// <param name="description">New description to update</param>
     /// <param name="price">New price entered to update</param>
     /// <param name="quantity">New quantity to update</param>
-    public void EditProduct(int prodID, string description, decimal price, int quantity){
+    public void EditProduct(int prodID, string name, string description, decimal price, int quantity){
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
         //Updates a single product by id, and passed in requirements
-        string sqlEditCmd = $"UPDATE Product SET Description = @desc, Price = @prc, Quantity = @qty WHERE ID = @prodID";
+        string sqlEditCmd = $"UPDATE Product SET Description = @desc, Price = @prc, Quantity = @qty, Name = @name WHERE ID = @prodID";
         using SqlCommand cmdEditProd = new SqlCommand(sqlEditCmd, connection);
         //Adds the paramaters to the sql command
         cmdEditProd.Parameters.AddWithValue("@desc", description);
         cmdEditProd.Parameters.AddWithValue("@prc", price);
         cmdEditProd.Parameters.AddWithValue("@qty", quantity);
+        cmdEditProd.Parameters.AddWithValue("@name", name);
         cmdEditProd.Parameters.AddWithValue("@prodID", prodID);
         //Edits the current product selected
         cmdEditProd.ExecuteNonQuery();
         connection.Close();
-        Log.Information("The product {productname} has been updated with a description of {description}, price of {price}, and a quantity of {quantity}", GetProductByID(prodID).Name, description, price, quantity);
+        Log.Information("The product {productname} has been updated with a description of {description}, price of {price}, and a quantity of {quantity}", name, description, price, quantity);
 
     }
 

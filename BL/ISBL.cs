@@ -20,7 +20,7 @@ public interface ISBL{
     
     void DeleteProduct(int prodID);
     
-    void EditProduct(int prodID, string description, decimal price, int quantity);
+    void EditProduct(int prodID, string name, string description, decimal price, int quantity);
     
     void AddStoreOrder(int storeID, StoreOrder storeOrderToAdd);
 }
