@@ -156,24 +156,6 @@ public class DBStoreRepo : ISRepo {
         }
         //Cant find any stores with that id
         return new Store();
-        /*        string query = "SELECT * From Store WHERE ID = @ID";
-                using SqlConnection connection = new SqlConnection(_connectionString);
-                connection.Open();
-                using SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@ID", storeID);
-
-                using SqlDataReader reader = cmd.ExecuteReader();
-                Store selectedStore = new Store();
-                if (reader.Read())
-                {
-                    selectedStore.ID = reader.GetInt32(0);
-                    selectedStore.Name = reader.GetString(1);
-                    selectedStore.Address = reader.GetString(2);
-                    selectedStore.City = reader.GetString(3);
-                    selectedStore.State = reader.GetString(4);
-                }
-                connection.Close();
-                return selectedStore;*/
     }
 
     /// <summary>
@@ -298,26 +280,24 @@ public class DBStoreRepo : ISRepo {
     /// Edits a product and saves it back to the database
     /// </summary>
     /// <param name="prodID">selected product ID</param>
-    /// <param name="name">New name to update</param>
-    /// <param name="description">New description to update</param>
-    /// <param name="price">New price entered to update</param>
-    /// <param name="quantity">New quantity to update</param>
-    public void EditProduct(int prodID, string name, string description, decimal price, int quantity){
+    /// <param name="prodToEdit">New product parameters to edit</param>
+   
+    public void EditProduct(int prodID, Product prodToEdit){
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
         //Updates a single product by id, and passed in requirements
         string sqlEditCmd = $"UPDATE Product SET Description = @desc, Price = @prc, Quantity = @qty, Name = @name WHERE ID = @prodID";
         using SqlCommand cmdEditProd = new SqlCommand(sqlEditCmd, connection);
         //Adds the paramaters to the sql command
-        cmdEditProd.Parameters.AddWithValue("@desc", description);
-        cmdEditProd.Parameters.AddWithValue("@prc", price);
-        cmdEditProd.Parameters.AddWithValue("@qty", quantity);
-        cmdEditProd.Parameters.AddWithValue("@name", name);
+        cmdEditProd.Parameters.AddWithValue("@desc", prodToEdit.Description);
+        cmdEditProd.Parameters.AddWithValue("@prc", prodToEdit.Price);
+        cmdEditProd.Parameters.AddWithValue("@qty", prodToEdit.Quantity);
+        cmdEditProd.Parameters.AddWithValue("@name", prodToEdit.Name);
         cmdEditProd.Parameters.AddWithValue("@prodID", prodID);
         //Edits the current product selected
         cmdEditProd.ExecuteNonQuery();
         connection.Close();
-        Log.Information("The product {productname} has been updated with a description of {description}, price of {price}, and a quantity of {quantity}", name, description, price, quantity);
+        Log.Information("The product {productname} has been updated with a description of {description}, price of {price}, and a quantity of {quantity}", prodToEdit.Name, prodToEdit.Description, prodToEdit.Price, prodToEdit.Quantity);
 
     }
 

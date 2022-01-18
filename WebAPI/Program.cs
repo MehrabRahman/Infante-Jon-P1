@@ -21,20 +21,20 @@ builder.Services.AddSwaggerGen(c =>
             Description = "Basic Authorization header using the Bearer scheme."
         });
         c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                        {
-                          {
-                            new OpenApiSecurityScheme
-                            {
-                                Reference = new OpenApiReference
-                                {
-                                    Type = ReferenceType.SecurityScheme,
-                                    Id = "basic"
-                                }
-                            },
-                            new string[] {}
-                        }
-                    });
+            {
+                {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "basic"
+                    }
+                },
+                new string[] {}
+            }
         });
+      });
 builder.Services.AddAuthentication("BasicAuthentication")
 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -57,8 +57,8 @@ namespace WebAPI.Controllers
             }
 
         }
-        // GET: api/<UserController>/username
-        // Returns all the users in the database
+        // GET: api/<UserController>/username/password
+        // Verifies if a user has the correct username and password
         [HttpGet("{username}/{password}")]
         public ActionResult<User> LoginUser(string username, string password)
         {

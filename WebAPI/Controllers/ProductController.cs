@@ -73,7 +73,7 @@ namespace WebAPI.Controllers
         {
             try
             {
-                _sbl.EditProduct(id, prodToEdit.Name!, prodToEdit.Description!, prodToEdit.Price, (int)prodToEdit.Quantity!);
+                _sbl.EditProduct(id, prodToEdit);
                 return Created("Successfully updated", prodToEdit);
             }
             catch (InputInvalidException ex)

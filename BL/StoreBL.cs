@@ -95,12 +95,10 @@ public class StoreBL : ISBL {
     /// Edits and updates the product selected in the current store
     /// </summary>
     /// <param name="prodID">ID of the current product</param>
-    /// <param name="name">Product's new name</param>
-    /// <param name="description">Product's new description</param>
-    /// <param name="price">Product's new price</param>
-    /// <param name="quantity">Product's new quantity</param>
-    public void EditProduct(int prodID,string name, string description, decimal price, int quantity){
-        _dl.EditProduct(prodID,name, description, price, quantity);
+    /// <param name="name">Product with new paramters to edit</param>
+
+    public void EditProduct(int prodID, Product prodToEdit){
+        _dl.EditProduct(prodID, prodToEdit);
     }
     /// <summary>
     /// Takes the current lists of product orders, packages them in a store order and adds to list
