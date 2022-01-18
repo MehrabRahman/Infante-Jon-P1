@@ -64,7 +64,7 @@ namespace WebAPI.Controllers
             {
                 _sbl.DeleteStore(id);
             }
-            return Ok();
+            return Ok("Store has been successfully deleted");
         }
     }
 }

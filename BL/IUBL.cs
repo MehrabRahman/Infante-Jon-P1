@@ -7,14 +7,20 @@ public interface IUBL{
     User GetCurrentUserByUsername(string username);
     
     int GetCurrentUserIndexByID(int userID);
+
     bool LoginUser(string username, string password);
 
+    Product GetProductByID(int prodID);
 
-    void AddProductOrder(User currUser, ProductOrder currProdOrder);       
-    
-    void EditProductOrder(User currUser, int prodOrderID, int quantity, decimal TotalPrice, int storeOrderID, int userOrderID);
-    
-    void DeleteProductOrder(User currUser, int prodOrderID);
+    List<ProductOrder> GetAllProductOrders(string username);
+
+    ProductOrder GetProductOrder(int prodOrderID);
+
+    void AddProductOrder(string username, int prodID, int quantity);
+
+    void EditProductOrder(int prodOrderID, int quantity, int storeOrderID, int userOrderID);
+
+    void DeleteProductOrder(int prodOrderID);
     
     void AddUserStoreOrder(User currUser, StoreOrder currStoreOrder);
     

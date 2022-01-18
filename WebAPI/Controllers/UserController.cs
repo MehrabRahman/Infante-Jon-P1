@@ -72,10 +72,10 @@ namespace WebAPI.Controllers
             if (_iubl.LoginUser(username, password))
             {
                 //Login information correct
-                return Ok(currUser);
+                return Ok("Your login information has been validated!");
             }
             //Invalid password
-            return Unauthorized();
+            return Unauthorized("Your password is incorrect");
             
         }
     }

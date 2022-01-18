@@ -10,15 +10,22 @@ public interface IURepo {
     bool IsDuplicate(string username);
 
     User GetCurrentUserByUsername(string username);
+
     bool LoginUser(string username, string password);
 
     int GetCurrentUserIndexByID(int userID);
 
-    void AddProductOrder(User currUser, ProductOrder currProdOrder);
+    Product GetProductByID(int prodID);
 
-    void EditProductOrder(User currUser, int prodOrderID, int quantity,decimal TotalPrice, int StoreOrderID, int userOrderID);
+    List<ProductOrder> GetAllProductOrders(string username);
 
-    void DeleteProductOrder(User currUser, int prodOrderID);
+    ProductOrder GetProductOrder(int prodOrderID);
+
+    void AddProductOrder(string username, int prodID, int quantity);
+
+    void EditProductOrder(int prodOrderID, int quantity, int storeOrderID, int userOrderID);
+
+    void DeleteProductOrder(int prodOrderID);
 
     void AddUserStoreOrder(User currUser, StoreOrder currStoreOrder);
     

@@ -151,13 +151,42 @@ public class DBUserRepo : IURepo {
         }
         return false;
     }
+    /// <summary>
+    /// Returns a product by the ID given
+    /// </summary>
+    /// <param name="prodID">product object ID selected</param>
+    /// <returns>Product Object</returns>
+    public Product GetProductByID(int prodID)
+    {
+        string query = "SELECT * From Product WHERE ID = @ID";
+        using SqlConnection connection = new SqlConnection(_connectionString);
+        connection.Open();
+        using SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@ID", prodID);
+
+        using SqlDataReader reader = cmd.ExecuteReader();
+        Product selectedProduct = new Product();
+        if (reader.Read())
+        {
+            selectedProduct.ID = reader.GetInt32(0);
+            selectedProduct.storeID = reader.GetInt32(1);
+            selectedProduct.Name = reader.GetString(2);
+            selectedProduct.Description = reader.GetString(3);
+            selectedProduct.Price = reader.GetDecimal(4);
+            selectedProduct.Quantity = reader.GetInt32(5);
+        }
+        connection.Close();
+        return selectedProduct;
+    }
 
     /// <summary>
     /// Adds a product order to the user's shopping cart inside the database
     /// </summary>
-    /// <param name="currUser">current user object inputted</param>
-    /// <param name="currProdOrder">product order object to add to the database</param>
-    public void AddProductOrder(User currUser, ProductOrder currProdOrder){
+    /// <param name="userID">current user ID inputted</param>
+    /// <param name="prodID">The selected product we are trying to order</param>
+    /// <param name="quantity">The quantity we want to buy of that product</param>
+
+    public void AddProductOrder(string username, int prodID, int quantity){
         //Establishing new connection
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
@@ -165,31 +194,105 @@ public class DBUserRepo : IURepo {
         string sqlCmd = "INSERT INTO ProductOrder (ID, userID, storeID, storeOrderID, userOrderID, productID, ItemName, TotalPrice, Quantity) VALUES (@ID, @userID, @storeID, @storeOrderID, @userOrderID, @productID, @itemName, @totPrice, @qty)"; 
         using SqlCommand cmdAddProductOrder= new SqlCommand(sqlCmd, connection);
         //Adding paramaters
-        cmdAddProductOrder.Parameters.AddWithValue("@ID", currProdOrder.ID);
-        cmdAddProductOrder.Parameters.AddWithValue("@userID", currProdOrder.userID);
-        cmdAddProductOrder.Parameters.AddWithValue("@storeID", currProdOrder.storeID);
-        cmdAddProductOrder.Parameters.AddWithValue("@storeOrderID", currProdOrder.storeOrderID);
-        cmdAddProductOrder.Parameters.AddWithValue("@userOrderID", currProdOrder.userOrderID);
-        cmdAddProductOrder.Parameters.AddWithValue("@productID", currProdOrder.productID);
-        cmdAddProductOrder.Parameters.AddWithValue("@itemName", currProdOrder.ItemName);
-        cmdAddProductOrder.Parameters.AddWithValue("@totPrice", currProdOrder.TotalPrice);
-        cmdAddProductOrder.Parameters.AddWithValue("@qty", currProdOrder.Quantity);
+        //Getting the current product information by id
+        Product currProduct = GetProductByID(prodID);
+        //Getting a new random id for the product order
+        Random rnd = new Random();
+        int id = rnd.Next(1000000);
+        cmdAddProductOrder.Parameters.AddWithValue("@ID", id);
+        //Gets the current user id from the username
+        User currUser = GetCurrentUserByUsername(username);
+        int userID = (int)currUser.ID!;
+        cmdAddProductOrder.Parameters.AddWithValue("@userID", userID);
+        cmdAddProductOrder.Parameters.AddWithValue("@storeID", currProduct.storeID);
+        cmdAddProductOrder.Parameters.AddWithValue("@storeOrderID", 0);
+        cmdAddProductOrder.Parameters.AddWithValue("@userOrderID", 0);
+        cmdAddProductOrder.Parameters.AddWithValue("@productID", currProduct.ID);
+        cmdAddProductOrder.Parameters.AddWithValue("@itemName", currProduct.Name);
+        //Updating total price
+        decimal totPrice = currProduct.Price * quantity;
+        cmdAddProductOrder.Parameters.AddWithValue("@totPrice", totPrice);
+        cmdAddProductOrder.Parameters.AddWithValue("@qty", quantity);
         //Executing command
         cmdAddProductOrder.ExecuteNonQuery();
         connection.Close();
-        Log.Information("A product order of {quantity} {itemName}s has been placed with the ID of {ID} to the user {currUsername}'s shopping cart",currProdOrder.Quantity, currProdOrder.ItemName, currProdOrder.ID, currUser.Username);
+        Log.Information("A product order of {quantity} {itemName}s has been placed with the ID of {ID} to the user ID of {currUserID}'s shopping cart",quantity, currProduct.Name, userID);
         }
+    /// <summary>
+    /// Gets all the currentt product orders in a user's shopping cart
+    /// </summary>
+    /// <param name="username">username inputted to get shopping cart from</param>
+    /// <returns>A List of product orders(line items)</returns>
+    public List<ProductOrder> GetAllProductOrders(string username)
+    {
+        List<ProductOrder> shoppingCart = new List<ProductOrder>();
+        string selectProdCmd = "SELECT * FROM ProductOrder WHERE userID = @userID AND storeOrderID = @0";
+        SqlConnection connection = new SqlConnection(_connectionString);
+        SqlCommand cmd = new SqlCommand(selectProdCmd, connection);
+        //Gets the current user's id from the username
+        User currUser = GetCurrentUserByUsername(username);
+        int userID = (int)currUser.ID!;
+        cmd.Parameters.AddWithValue("@userID", userID);
+        cmd.Parameters.AddWithValue("@0", 0);
+
+        DataSet productOrderSet = new DataSet();
+
+        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+        adapter.Fill(productOrderSet, "productOrder");
+
+        DataTable productOrderTable = productOrderSet.Tables["productOrder"]!;
+        if (productOrderTable != null)
+        {
+            //Adds each of the product orders we find to the cart to return
+            foreach (DataRow row in productOrderTable.Rows)
+            {
+                ProductOrder pOrder = new ProductOrder(row);
+                shoppingCart.Add(pOrder);
+            }
+        }
+
+        return shoppingCart;
+    }
+    /// <summary>
+    /// Gets the current selected product order by id
+    /// </summary>
+    /// <param name="prodOrderID"></param>
+    /// <returns></returns>
+    public ProductOrder GetProductOrder(int prodOrderID)
+    {
+        string query = "SELECT * From ProductOrder WHERE ID = @ID";
+        using SqlConnection connection = new SqlConnection(_connectionString);
+        connection.Open();
+        using SqlCommand cmd = new SqlCommand(query, connection);
+        cmd.Parameters.AddWithValue("@ID", prodOrderID);
+
+        using SqlDataReader reader = cmd.ExecuteReader();
+        ProductOrder selectedProduct = new ProductOrder();
+        if (reader.Read())
+        {
+            selectedProduct.ID = reader.GetInt32(0);
+            selectedProduct.userID = reader.GetInt32(1);
+            selectedProduct.storeID = reader.GetInt32(2);
+            selectedProduct.storeOrderID = reader.GetInt32(3);
+            selectedProduct.userOrderID = reader.GetInt32(4);
+            selectedProduct.productID = reader.GetInt32(5);
+            selectedProduct.ItemName = reader.GetString(6);
+            selectedProduct.TotalPrice = reader.GetDecimal(7);
+            selectedProduct.Quantity = reader.GetInt32(8);
+        }
+        connection.Close();
+        return selectedProduct;
+    }
 
     /// <summary>
     /// Edits a selected product order in the user's shopping cart, and saves it back to the database
     /// </summary>
-    /// <param name="currUser">current user selected</param>
     /// <param name="prodOrderID">ID of the product order selected to edit</param>
     /// <param name="quantity">New quantity to update</param>
-    /// <param name="TotalPrice">New total price to update</param>
     /// <param name="storeOrderID">Edit's the store order id when we checkout the cart</param>
     /// <param name="userOrderID">Edit's the user's order id when we checkout the cart</param>
-    public void EditProductOrder(User currUser, int prodOrderID, int quantity, decimal TotalPrice, int storeOrderID, int userOrderID){
+    public void EditProductOrder(int prodOrderID, int quantity, int storeOrderID, int userOrderID){
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
         //Updates a single product by id, and passed in requirements
@@ -197,7 +300,10 @@ public class DBUserRepo : IURepo {
         using SqlCommand cmdEditProdOrder = new SqlCommand(sqlEditCmd, connection);
         //Adds the paramaters to the sql command
         cmdEditProdOrder.Parameters.AddWithValue("@qty", quantity);
-        cmdEditProdOrder.Parameters.AddWithValue("@tPrice", TotalPrice);
+        //Calculating new total price
+        ProductOrder currPOrder = GetProductOrder(prodOrderID);     
+        decimal totPrice = (((decimal)currPOrder.TotalPrice/(int)currPOrder.Quantity!)*quantity);
+        cmdEditProdOrder.Parameters.AddWithValue("@tPrice", totPrice);
         cmdEditProdOrder.Parameters.AddWithValue("@prodOrderID", prodOrderID);
         cmdEditProdOrder.Parameters.AddWithValue("@sOrderID", storeOrderID);
         cmdEditProdOrder.Parameters.AddWithValue("@uOrderID", userOrderID);
@@ -207,16 +313,15 @@ public class DBUserRepo : IURepo {
         //If the user order id is 0, that means the product order is still in the cart.
         //When the user checks out, the user order id is changed to match for the store orders and we don't want to call the edit product logger
         if (userOrderID == 0){
-            Log.Information("The product order with ID {ID} has been edited with a new quantity of {quantity} for user {currUsername}",prodOrderID, quantity, currUser.Username);
+            Log.Information("The product order with ID {ID} has been edited with a new quantity of {quantity}",prodOrderID, quantity);
         }
     }
 
     /// <summary>
     /// Remove a Product Order from the user's shopping cart and database
     /// </summary>
-    /// <param name="currUser">current user object inputted</param>
     /// <param name="prodOrderID">the product order ID of the product order we have selected</param>
-    public void DeleteProductOrder(User currUser, int prodOrderID){
+    public void DeleteProductOrder(int prodOrderID){
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
         //Deletes a single product by id
@@ -226,7 +331,7 @@ public class DBUserRepo : IURepo {
         //Deletes the current product selected
         cmdDelProdOrder.ExecuteNonQuery();
         connection.Close();
-        Log.Information("The product order with ID {ID} has been deleted from the user {user}'s shopping cart", prodOrderID, currUser.Username);
+        Log.Information("The product order with ID {ID} has been deleted from the user's shopping cart", prodOrderID);
 
     }
 

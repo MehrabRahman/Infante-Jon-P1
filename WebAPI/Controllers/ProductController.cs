@@ -94,7 +94,7 @@ namespace WebAPI.Controllers
                 return NoContent();
             }
             _sbl.DeleteProduct(id);
-            return Ok();
+            return Ok("Successfully deleted a product");
         }
     }
 }

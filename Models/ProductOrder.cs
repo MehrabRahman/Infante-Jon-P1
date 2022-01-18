@@ -11,6 +11,7 @@ public class ProductOrder {
         userID = (int) r["userID"];
         storeID = (int) r["storeID"];
         storeOrderID = (int) r["storeOrderID"];
+        userOrderID = (int) r["userOrderID"];
         productID = (int)r["productID"];
         ItemName = r["ItemName"].ToString() ?? "";
         TotalPrice = (decimal)r["TotalPrice"];
