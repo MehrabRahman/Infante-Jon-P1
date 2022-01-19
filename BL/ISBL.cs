@@ -21,6 +21,8 @@ public interface ISBL{
     void DeleteProduct(int prodID);
     
     void EditProduct(int prodID, Product prodToEdit);
-    
+
     void AddStoreOrder(int storeID, StoreOrder storeOrderToAdd);
+
+    List<StoreOrder> GetStoreOrders(int storeID, string selection);
 }

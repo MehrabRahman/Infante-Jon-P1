@@ -123,6 +123,16 @@ public class UserBL : IUBL {
         _dl.Checkout(username);
     }
     /// <summary>
+    /// Return a list of store orders with pertaining product orders from the selected user, with sorting by high/low, new/old
+    /// </summary>
+    /// <param name="username">Username of the user selected</param>
+    /// <param name="selection">Selection to query the database with. high/low by total amount, new/old by date seconds</param>
+    /// <returns>List of ordered store orders</returns>
+    public List<StoreOrder> GetStoreOrders(string username, string selection)
+    {
+        return _dl.GetStoreOrders(username, selection);
+    }
+    /// <summary>
     /// Clears the user's shopping cart
     /// </summary>
     /// <param name="currUser">Current user [object]</param>

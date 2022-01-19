@@ -90,15 +90,35 @@ namespace WebAPI.Controllers
                 return NoContent();
             }
             List<ProductOrder> shoppingCart = _iubl.GetAllProductOrders(username);
+            //Checkout available
             if(shoppingCart.Count != 0)
             {
                 _iubl.Checkout(username);
                 return Ok("Successfully checked out!");
             }
+            //No items to checkout
             else
             {
                 return NoContent();
             }
+        }
+        // GET: api/<UserController>/orders/username
+        // Return a list of store orders in the database ordered
+        [HttpGet("orders/{username}")]
+        public ActionResult<List<User>> GetStoreOrders(string username, string selection)
+        {
+            User currUser = _iubl.GetCurrentUserByUsername(username);
+            //User not found
+            if (currUser.ID == null)
+            {
+                return NoContent();
+            }
+            List<StoreOrder> allOrders = _iubl.GetStoreOrders(username, selection);
+            if (allOrders.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(allOrders);
         }
     }
 }

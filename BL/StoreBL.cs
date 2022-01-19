@@ -108,5 +108,15 @@ public class StoreBL : ISBL {
     public void AddStoreOrder(int storeID, StoreOrder storeOrderToAdd){
         _dl.AddStoreOrder(storeID, storeOrderToAdd);
     }
+    /// <summary>
+    /// Gets a list of all store orders from a particular store. Sorts by default or high/low, old/new
+    /// </summary>
+    /// <param name="storeID">Selected store id</param>
+    /// <param name="selection">The selection we want to order the store orders by, by time ordered or by total price</param>
+    /// <returns>A List of store orders</returns>
+    public List<StoreOrder> GetStoreOrders(int storeID, string selection)
+    {
+        return _dl.GetStoreOrders(storeID, selection);
+    }
 
 }

@@ -66,5 +66,17 @@ namespace WebAPI.Controllers
             }
             return Ok("Store has been successfully deleted");
         }
+        // GET: api/<StoreController>/orders/id
+        // Returns all the orders in the store with sorting
+        [HttpGet("orders/{id}")]
+        public ActionResult<List<StoreOrder>> GetStoreOrders(int id, string selection)
+        {
+            List<StoreOrder> allOrders = _sbl.GetStoreOrders(id, selection);
+            if (allOrders.Count == 0)
+            {
+                return NoContent();
+            }
+            return Ok(allOrders);
+        }
     }
 }

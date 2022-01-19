@@ -327,6 +327,72 @@ public class DBStoreRepo : ISRepo {
         Log.Information("An order has been added to the store {storename} from the user {username} with a total amount of ${totAmount}", GetStoreByID(storeID).Name, storeOrderToAdd.userName, storeOrderToAdd.TotalAmount);
 
     }
+
+    public List<StoreOrder> GetStoreOrders(int storeID, string selection)
+    {
+        string selectStoreOrderCmd = "";
+        //Sort by highest price first
+        if (selection == "high") {
+            selectStoreOrderCmd = "SELECT * FROM StoreOrder WHERE storeID = @storeID ORDER BY TotalAmount DESC";
+        }
+        //Sort by lowest price first
+        else if (selection == "low")
+        {
+            selectStoreOrderCmd = "SELECT * FROM StoreOrder WHERE storeID = @storeID ORDER BY TotalAmount ASC";
+        }
+        //Sort by most recently ordered
+        else if (selection == "new")
+        {
+            selectStoreOrderCmd = "SELECT * FROM StoreOrder WHERE storeID = @storeID ORDER BY DateSeconds DESC";
+        }
+        //Sort by last ordered
+        else if (selection == "old")
+        {
+            selectStoreOrderCmd = "SELECT * FROM StoreOrder WHERE storeID = @storeID ORDER BY DateSeconds ASC";
+        }
+        //Incorrect ordering found, use default by how SQL orders it (by ID)
+        else
+        {
+            selectStoreOrderCmd = "SELECT * FROM StoreOrder WHERE storeID = @storeID";
+        }
+
+        //Get all the product orders to fill each store order correctly
+        string selectProductOrderCmd = "SELECT * FROM ProductOrder WHERE storeID = @storeID2";
+        SqlConnection connection = new SqlConnection(_connectionString);
+
+        SqlCommand sCmd = new SqlCommand(selectStoreOrderCmd, connection);
+        sCmd.Parameters.AddWithValue("@storeID", storeID);
+        SqlCommand pCmd = new SqlCommand(selectProductOrderCmd, connection);
+        pCmd.Parameters.AddWithValue("@storeID2", storeID);
+
+        DataSet sOrderSet = new DataSet();
+
+        SqlDataAdapter storeOrderAdapter = new SqlDataAdapter(sCmd);
+        SqlDataAdapter prodOrderAdapter = new SqlDataAdapter(pCmd);
+
+        storeOrderAdapter.Fill(sOrderSet, "storeOrder");
+        prodOrderAdapter.Fill(sOrderSet, "productOrder");
+
+        DataTable storeOrderTable = sOrderSet.Tables["storeOrder"]!;
+        DataTable productOrderTable = sOrderSet.Tables["productOrder"]!;
+
+        List<StoreOrder> allOrders = new List<StoreOrder>();
+        foreach (DataRow row in storeOrderTable.Rows)
+        {
+            //Create a new store order object retrieved from the database
+            StoreOrder storeOrder = new StoreOrder(row);
+            //Add each product order to the corresponding store order
+            if (productOrderTable != null)
+            {
+                storeOrder.Orders = productOrderTable!.AsEnumerable().Where(r => (int)r["storeOrderID"] == storeOrder.ID).Select(
+                    r => new ProductOrder(r)
+                ).ToList();
+            }
+            allOrders.Add(storeOrder);
+        }
+        return allOrders;    
+    }
+       
         
     //Unused with database implementation
     public int GetProductIndexByID(int storeID, int prodID){

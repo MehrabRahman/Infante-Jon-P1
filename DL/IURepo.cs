@@ -28,7 +28,10 @@ public interface IURepo {
     void DeleteProductOrder(int prodOrderID);
 
     void AddStoreOrder(string username, StoreOrder currStoreOrder);
+
     void Checkout(string username);
+
+    List<StoreOrder> GetStoreOrders(string username, string selection);
 
     void ClearShoppingCart(User currUser);
 }

@@ -26,5 +26,8 @@ public interface IUBL{
 
     void Checkout(string username);
 
+    List<StoreOrder> GetStoreOrders(string username, string selection);
+
     void ClearShoppingCart(User currUser);
+
 }

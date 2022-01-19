@@ -25,5 +25,7 @@ public interface ISRepo{
     
     void AddStoreOrder(int storeID, StoreOrder storeOrderToAdd);
 
+    List<StoreOrder> GetStoreOrders(int storeID, string selection);
+
 
 }
