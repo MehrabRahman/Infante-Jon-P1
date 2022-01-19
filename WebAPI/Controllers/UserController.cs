@@ -59,7 +59,7 @@ namespace WebAPI.Controllers
         }
         // GET: api/<UserController>/username/password
         // Verifies if a user has the correct username and password
-        [HttpGet("{username}/{password}")]
+        [HttpGet("login/{username}")]
         public ActionResult<User> LoginUser(string username, string password)
         {
             User currUser = _iubl.GetCurrentUserByUsername(username);
