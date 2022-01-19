@@ -56,20 +56,30 @@ namespace WebAPI.Controllers
         [HttpPost]
         public ActionResult Post(string username, int prodID, int quantity)
         {
-            try
-            {   
-                //Checking if we can edit the current product's quantity from the product order
-                Product currProduct = _sbl.GetProductByID(prodID);
-                //Updates the current proucts quantity
-                currProduct.Quantity = currProduct.Quantity - quantity;
-                _sbl.EditProduct(prodID, currProduct);
-            }
-            catch (InputInvalidException ex)
+            Product currProdSelected = _iubl.GetProductByID(prodID);
+            //Valid product found
+            if(currProdSelected.ID != null)
             {
-                return Conflict(ex.Message);
-            }
+                try
+                {   
+                    //Checking if we can edit the current product's quantity from the product order
+                    Product currProduct = _sbl.GetProductByID(prodID);
+                    //Updates the current proucts quantity
+                    currProduct.Quantity = currProduct.Quantity - quantity;
+                    _sbl.EditProduct(prodID, currProduct);
+                }
+                catch (InputInvalidException ex)
+                {
+                    return Conflict(ex.Message);
+                }
             _iubl.AddProductOrder(username, prodID, quantity);
             return Ok("Successfully added a product order to your cart");
+            }
+            //No product found with inputted id
+            else
+            {
+                return NoContent();
+            }
 
         }
         // PUT api/<ProductOrderController>/id
@@ -113,6 +123,7 @@ namespace WebAPI.Controllers
                 Product currProduct = _sbl.GetProductByID((int)pOrder.productID!);
                 currProduct.Quantity = currProduct.Quantity + pOrder.Quantity;
                 _sbl.EditProduct((int)pOrder.productID, currProduct);
+                //Deletes the product order from the user's cart
                 _iubl.DeleteProductOrder(id);
                 return Ok("Product order has been deleted");
             }

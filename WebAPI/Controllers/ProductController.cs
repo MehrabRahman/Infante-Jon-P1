@@ -53,14 +53,24 @@ namespace WebAPI.Controllers
         [HttpPost]
         public ActionResult Post(int storeID, [FromBody] Product productToAdd)
         {
-            try
+            Store currStore = _sbl.GetStoreByID(storeID);
+            //If there is a valid store in the database
+            if (currStore.ID != null)
             {
-                _sbl.AddProduct(storeID, productToAdd);
-                return Created("Successfully added", productToAdd);
+                try
+                {
+                    _sbl.AddProduct(storeID, productToAdd);
+                    return Created("Successfully added", productToAdd);
+                }
+                catch (InputInvalidException ex)
+                {
+                    return Conflict(ex.Message);
+                }
             }
-            catch (InputInvalidException ex)
+            //Store not found
+            else
             {
-                return Conflict(ex.Message);
+                return NoContent();
             }
 
         }
@@ -74,12 +84,13 @@ namespace WebAPI.Controllers
             try
             {
                 _sbl.EditProduct(id, prodToEdit);
-                return Created("Successfully updated", prodToEdit);
             }
             catch (InputInvalidException ex)
             {
                 return Conflict(ex.Message);
             }
+            return Created("Successfully updated", prodToEdit);
+
         }
 
         // DELETE api/<ProductController>/5

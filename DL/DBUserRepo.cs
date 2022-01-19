@@ -336,19 +336,20 @@ public class DBUserRepo : IURepo {
     }
 
     /// <summary>
-    /// Adds a store order to the user's list of previous orders and to the database
+    /// Adds a store order to the database
     /// </summary>
-    /// <param name="currUser">current user object selected</param>
+    /// <param name="username">current user selected by username</param>
     /// <param name="currStoreOrder">storeOrder object to add to previous orders</param>
-    public void AddUserStoreOrder(User currUser, StoreOrder currStoreOrder){
+    public void AddStoreOrder(string username, StoreOrder currStoreOrder){
         using SqlConnection connection = new SqlConnection(_connectionString);
         connection.Open();
-        string sqlInsertCmd = "INSERT INTO StoreOrder (ID, userID, referenceID, storeID, currDate, DateSeconds, TotalAmount) VALUES (@ID, @uID, @refID, @stID, @date, @dateS, @tAmount)";
+        string sqlInsertCmd = "INSERT INTO StoreOrder (ID, userID, userName, referenceID, storeID, currDate, DateSeconds, TotalAmount) VALUES (@ID, @uID, @username, @refID, @stID, @date, @dateS, @tAmount)";
         //Creates the new sql command
         using SqlCommand cmd = new SqlCommand(sqlInsertCmd, connection);
         //Adds the paramaters to the insert command
         cmd.Parameters.AddWithValue("@ID", currStoreOrder.ID);
         cmd.Parameters.AddWithValue("@uID", currStoreOrder.userID);
+        cmd.Parameters.AddWithValue("@username", currStoreOrder.userName);
         cmd.Parameters.AddWithValue("@refID", currStoreOrder.referenceID);
         cmd.Parameters.AddWithValue("@stID", currStoreOrder.storeID);
         cmd.Parameters.AddWithValue("@date", currStoreOrder.currDate);
@@ -357,7 +358,93 @@ public class DBUserRepo : IURepo {
         //Executes the insert command
         cmd.ExecuteNonQuery();
         connection.Close();
-        Log.Information("The user {currUsername} has checked out and created a new store order with ID {ID} with a total amount of ${totAmount}",currUser.Username, currStoreOrder.ID, currStoreOrder.TotalAmount);
+        if (currStoreOrder.storeID != 0)
+        {
+            Log.Information("The user {currUsername} has checked out and created a new store order with ID {ID} with a total amount of ${totAmount}", username, currStoreOrder.ID, currStoreOrder.TotalAmount);
+        }
+        else
+        {
+            Log.Information("An order has been added to the store with an id of {storeid} from the user {username} with a total amount of ${totAmount}", currStoreOrder.storeID, username, currStoreOrder.TotalAmount);
+        }
+    }
+
+    public void Checkout(string username)
+    {
+        //Get the current user's shopping cart with a list of product orders
+        List<ProductOrder> shoppingCart = GetAllProductOrders(username);
+        //Gets the current user's ID
+        int userID = (int)GetCurrentUserByUsername(username).ID!;
+        //Gets the current total amount of the entire shopping cart
+        decimal cartTotal = 0;
+        foreach(ProductOrder pOrder in shoppingCart)
+        {
+            cartTotal += pOrder.TotalPrice;
+        }
+        //Getting the current date for and random id for storeOrder paramaters
+        Random rnd = new Random();
+        int cartid = rnd.Next(1000000);
+        string currTime = DateTime.Now.ToString();
+        double currTimeSeconds = DateTime.Now.Subtract(DateTime.MinValue).TotalSeconds;
+        StoreOrder userStoreOrder = new StoreOrder
+        {
+            ID = cartid!,
+            userID = userID,
+            userName = username,
+            referenceID = userID,
+            storeID = 0,
+            TotalAmount = cartTotal,
+            currDate = currTime!,
+            DateSeconds = currTimeSeconds!,
+        };
+        //Adds to current user's store order list
+        AddStoreOrder(username, userStoreOrder);
+        //Get each corresponding store from each product's ID and add to a dictionary
+        Dictionary<int, List<ProductOrder>> storeOrdersToPlace = new Dictionary<int, List<ProductOrder>>();
+        foreach (ProductOrder pOrder in shoppingCart)
+        {
+            //Getting the ID of the current store from the product id's string id code
+            int currStoreID = (int)pOrder.storeID!;
+            if (storeOrdersToPlace.ContainsKey(currStoreID))
+            {
+                storeOrdersToPlace[currStoreID].Add(pOrder);
+            }
+            //If there is no key found
+            else
+            {
+                List<ProductOrder> listP = new List<ProductOrder>();
+                listP.Add(pOrder);
+                //Assigns the initial first item to a new dictionary key (by store index, list of product orders)
+                storeOrdersToPlace.Add(currStoreID, listP);
+            }
+        }
+        //Iterate over dictionary with store ids and corresponding product orders
+        foreach (KeyValuePair<int, List<ProductOrder>> kv in storeOrdersToPlace)
+        {
+            //get new store Order id between 1 and 1,000,000
+            int sid = rnd.Next(1000000);
+            //calcuate total order value for list of product orders
+            decimal StoreOrderTotalValue = 0;
+            foreach (ProductOrder pOrd in kv.Value)
+            {
+                StoreOrderTotalValue += pOrd.TotalPrice!;
+                //Declare a store order id for the checked out product to be accessed later by database
+                //edit product order store order id to save as a reference to which product order this store belongs to
+                EditProductOrder((int)pOrd.ID!, (int)pOrd.Quantity!, sid, cartid);
+            }
+            StoreOrder storeOrderToAdd = new StoreOrder
+            {
+                ID = sid!,
+                userID = userID!,
+                userName = username,
+                referenceID = kv.Key,
+                storeID = kv.Key,
+                TotalAmount = StoreOrderTotalValue!,
+                currDate = currTime!,
+                DateSeconds = currTimeSeconds!,
+            };
+            //Adds store order to current selected store
+            AddStoreOrder(username, storeOrderToAdd);
+        }
     }
 
     //Unused with database implementation

@@ -107,12 +107,20 @@ public class UserBL : IUBL {
         _dl.DeleteProductOrder(prodOrderID);
     }
     /// <summary>
-    /// Adds a store order to the user's order list
+    /// Adds a store order to a user's store order list or a store's list
     /// </summary>
-    /// <param name="currUserIndex">Current user [object]</param>
+    /// <param name="username">Current username who is placing the order</param>
     /// <param name="currStoreOrder">Store order to add</param>
-    public void AddUserStoreOrder(User currUser, StoreOrder currStoreOrder){
-        _dl.AddUserStoreOrder(currUser, currStoreOrder);
+    public void AddStoreOrder(string username, StoreOrder currStoreOrder){
+        _dl.AddStoreOrder(username, currStoreOrder);
+    }
+    /// <summary>
+    /// Checks out the user's shopping cart and creates multiple store orders depending on how many products the user placed from individual stores. At least two store orders are created each time
+    /// </summary>
+    /// <param name="username"></param>
+    public void Checkout(string username)
+    {
+        _dl.Checkout(username);
     }
     /// <summary>
     /// Clears the user's shopping cart

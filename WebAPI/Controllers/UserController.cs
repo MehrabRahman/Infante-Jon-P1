@@ -78,5 +78,27 @@ namespace WebAPI.Controllers
             return Unauthorized("Your password is incorrect");
             
         }
+        // POST api/<UserController>
+        // Checks out the user's shopping cart and creates store orders
+        [HttpPost("checkout/{username}")]
+        public ActionResult Checkout(string username)
+        {
+            User user = _iubl.GetCurrentUserByUsername(username);
+            //no user found
+            if(user.ID == null)
+            {
+                return NoContent();
+            }
+            List<ProductOrder> shoppingCart = _iubl.GetAllProductOrders(username);
+            if(shoppingCart.Count != 0)
+            {
+                _iubl.Checkout(username);
+                return Ok("Successfully checked out!");
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
     }
 }

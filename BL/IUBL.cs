@@ -22,7 +22,9 @@ public interface IUBL{
 
     void DeleteProductOrder(int prodOrderID);
     
-    void AddUserStoreOrder(User currUser, StoreOrder currStoreOrder);
-    
+    void AddStoreOrder(string username, StoreOrder currStoreOrder);
+
+    void Checkout(string username);
+
     void ClearShoppingCart(User currUser);
 }
