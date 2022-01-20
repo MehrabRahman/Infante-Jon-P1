@@ -1,4 +1,4 @@
-﻿<h1 align="center">  Copy of Jon's Conglomerate of stores for used hardware goods </h1> <br>
+﻿<h1 align="center">  Second copy of Jon's Conglomerate of stores for used hardware goods </h1> <br>
 <p align="center">
   Command Line application written in C#
 </p>
