@@ -216,7 +216,7 @@ public class DBUserRepo : IURepo {
         //Executing command
         cmdAddProductOrder.ExecuteNonQuery();
         connection.Close();
-        Log.Information("A product order of {quantity} {itemName}s has been placed with the ID of {ID} to the user ID of {currUserID}'s shopping cart",quantity, currProduct.Name, userID);
+        Log.Information("A product order of {quantity} {itemName}s has been placed with the ID of {ID} to the user ID of {currUserID}'s shopping cart",quantity, currProduct.Name, id, userID);
         }
     /// <summary>
     /// Gets all the currentt product orders in a user's shopping cart
@@ -445,6 +445,7 @@ public class DBUserRepo : IURepo {
             //Adds store order to current selected store
             AddStoreOrder(username, storeOrderToAdd);
         }
+        Log.Information("The user {user} has checked out their cart!", username);
     }
     public List<StoreOrder> GetStoreOrders(string username, string selection)
     {

@@ -1,0 +1,157 @@
+2022-01-20 10:47:27.804 -05:00 [INF] User profile is available. Using 'C:\Users\jonjo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-01-20 10:47:28.151 -05:00 [INF] Now listening on: https://localhost:7085
+2022-01-20 10:47:28.151 -05:00 [INF] Now listening on: http://localhost:5085
+2022-01-20 10:47:28.152 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 10:47:28.152 -05:00 [INF] Hosting environment: Development
+2022-01-20 10:47:28.152 -05:00 [INF] Content root path: C:\Users\jonjo\OneDrive\Desktop\Revature\P1\WebAPI\
+2022-01-20 10:47:28.947 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/index.html - -
+2022-01-20 10:47:29.246 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - -
+2022-01-20 10:47:29.247 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/index.html - - - 200 - text/html;charset=utf-8 305.4568ms
+2022-01-20 10:47:29.256 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - - - 200 11940 application/javascript;+charset=utf-8 9.8341ms
+2022-01-20 10:47:29.442 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - -
+2022-01-20 10:47:29.591 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 148.8322ms
+2022-01-20 10:47:33.324 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/Store - -
+2022-01-20 10:47:33.413 -05:00 [INF] BasicAuthentication was not authenticated. Failure message: Authentication failed: The format of value '<null>' is invalid.
+2022-01-20 10:47:33.419 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.StoreController.GetStore (WebAPI)'
+2022-01-20 10:47:33.430 -05:00 [INF] Route matched with {action = "GetStore", controller = "Store"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Store]] GetStore() on controller WebAPI.Controllers.StoreController (WebAPI).
+2022-01-20 10:58:52.369 -05:00 [INF] User profile is available. Using 'C:\Users\jonjo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-01-20 10:58:52.713 -05:00 [INF] Now listening on: https://localhost:7085
+2022-01-20 10:58:52.714 -05:00 [INF] Now listening on: http://localhost:5085
+2022-01-20 10:58:52.714 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 10:58:52.714 -05:00 [INF] Hosting environment: Development
+2022-01-20 10:58:52.714 -05:00 [INF] Content root path: C:\Users\jonjo\OneDrive\Desktop\Revature\P1\WebAPI\
+2022-01-20 10:58:53.444 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/index.html - -
+2022-01-20 10:58:53.704 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - -
+2022-01-20 10:58:53.705 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/index.html - - - 200 - text/html;charset=utf-8 267.8615ms
+2022-01-20 10:58:53.712 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - - - 200 11940 application/javascript;+charset=utf-8 7.4321ms
+2022-01-20 10:58:53.852 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - -
+2022-01-20 10:58:53.982 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 129.3493ms
+2022-01-20 10:58:58.306 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/Store - -
+2022-01-20 10:58:58.393 -05:00 [INF] BasicAuthentication was not authenticated. Failure message: Authentication failed: The format of value '<null>' is invalid.
+2022-01-20 10:58:58.397 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.StoreController.GetStore (WebAPI)'
+2022-01-20 10:58:58.405 -05:00 [INF] Route matched with {action = "GetStore", controller = "Store"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Store]] GetStore() on controller WebAPI.Controllers.StoreController (WebAPI).
+2022-01-20 10:59:00.453 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Store, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-01-20 10:59:00.472 -05:00 [INF] Executed action WebAPI.Controllers.StoreController.GetStore (WebAPI) in 2061.2479ms
+2022-01-20 10:59:00.473 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.StoreController.GetStore (WebAPI)'
+2022-01-20 10:59:00.473 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/api/Store - - - 200 - application/json;+charset=utf-8 2166.7243ms
+2022-01-20 10:59:36.425 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7085/api/Product?storeID=596455 application/json 81
+2022-01-20 10:59:36.450 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.ProductController.Post (WebAPI)'
+2022-01-20 10:59:36.461 -05:00 [INF] Route matched with {action = "Post", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Post(Int32, Models.Product) on controller WebAPI.Controllers.ProductController (WebAPI).
+2022-01-20 10:59:38.349 -05:00 [INF] The product Banana with a price of 199.99 and a quantity of 20, has been added to the store Atlantic
+2022-01-20 10:59:38.354 -05:00 [INF] The product Banana has been added to the store with an ID of 596455
+2022-01-20 10:59:38.356 -05:00 [INF] Executing CreatedResult, writing value of type 'Models.Product'.
+2022-01-20 10:59:38.357 -05:00 [INF] Executed action WebAPI.Controllers.ProductController.Post (WebAPI) in 1895.2697ms
+2022-01-20 10:59:38.357 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.ProductController.Post (WebAPI)'
+2022-01-20 10:59:38.357 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7085/api/Product?storeID=596455 application/json 81 - 201 - application/json;+charset=utf-8 1932.2155ms
+2022-01-20 11:05:36.784 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/Store - -
+2022-01-20 11:05:36.792 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.StoreController.GetStore (WebAPI)'
+2022-01-20 11:05:36.792 -05:00 [INF] Route matched with {action = "GetStore", controller = "Store"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Store]] GetStore() on controller WebAPI.Controllers.StoreController (WebAPI).
+2022-01-20 11:05:38.290 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Store, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-01-20 11:05:38.290 -05:00 [INF] Executed action WebAPI.Controllers.StoreController.GetStore (WebAPI) in 1498.2596ms
+2022-01-20 11:05:38.290 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.StoreController.GetStore (WebAPI)'
+2022-01-20 11:05:38.291 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/api/Store - - - 200 - application/json;+charset=utf-8 1507.0849ms
+2022-01-20 11:06:08.161 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/Store/orders/596455?selection=high - -
+2022-01-20 11:06:08.167 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.StoreController.GetStoreOrders (WebAPI)'
+2022-01-20 11:06:08.169 -05:00 [INF] Route matched with {action = "GetStoreOrders", controller = "Store"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.StoreOrder]] GetStoreOrders(Int32, System.String) on controller WebAPI.Controllers.StoreController (WebAPI).
+2022-01-20 11:06:43.700 -05:00 [INF] User profile is available. Using 'C:\Users\jonjo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-01-20 11:06:44.680 -05:00 [INF] Now listening on: https://localhost:7085
+2022-01-20 11:06:44.681 -05:00 [INF] Now listening on: http://localhost:5085
+2022-01-20 11:06:44.682 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 11:06:44.682 -05:00 [INF] Hosting environment: Development
+2022-01-20 11:06:44.682 -05:00 [INF] Content root path: C:\Users\jonjo\OneDrive\Desktop\Revature\P1\WebAPI\
+2022-01-20 11:06:46.535 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/index.html - -
+2022-01-20 11:06:47.743 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/index.html - - - 200 - text/html;charset=utf-8 1243.5905ms
+2022-01-20 11:07:06.743 -05:00 [INF] User profile is available. Using 'C:\Users\jonjo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-01-20 11:07:07.251 -05:00 [INF] Now listening on: https://localhost:7085
+2022-01-20 11:07:07.252 -05:00 [INF] Now listening on: http://localhost:5085
+2022-01-20 11:07:07.252 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 11:07:07.252 -05:00 [INF] Hosting environment: Development
+2022-01-20 11:07:07.252 -05:00 [INF] Content root path: C:\Users\jonjo\OneDrive\Desktop\Revature\P1\WebAPI\
+2022-01-20 11:07:08.525 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/index.html - -
+2022-01-20 11:07:09.026 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/index.html - - - 200 - text/html;charset=utf-8 506.2094ms
+2022-01-20 11:07:09.028 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - -
+2022-01-20 11:07:09.049 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - - - 200 11940 application/javascript;+charset=utf-8 20.1751ms
+2022-01-20 11:07:09.456 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - -
+2022-01-20 11:07:09.831 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 375.2516ms
+2022-01-20 11:07:19.682 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/Store - -
+2022-01-20 11:07:19.857 -05:00 [INF] BasicAuthentication was not authenticated. Failure message: Authentication failed: The format of value '<null>' is invalid.
+2022-01-20 11:07:19.867 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.StoreController.GetStore (WebAPI)'
+2022-01-20 11:07:19.886 -05:00 [INF] Route matched with {action = "GetStore", controller = "Store"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Store]] GetStore() on controller WebAPI.Controllers.StoreController (WebAPI).
+2022-01-20 11:07:22.057 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Store, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-01-20 11:07:22.089 -05:00 [INF] Executed action WebAPI.Controllers.StoreController.GetStore (WebAPI) in 2196.0318ms
+2022-01-20 11:07:22.090 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.StoreController.GetStore (WebAPI)'
+2022-01-20 11:07:22.091 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/api/Store - - - 200 - application/json;+charset=utf-8 2408.5082ms
+2022-01-20 11:07:39.113 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/Store/orders/596455?selection=high - -
+2022-01-20 11:07:39.165 -05:00 [INF] BasicAuthentication was not authenticated. Failure message: Authentication failed: The format of value '<null>' is invalid.
+2022-01-20 11:07:39.166 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.StoreController.GetStoreOrders (WebAPI)'
+2022-01-20 11:07:39.187 -05:00 [INF] Route matched with {action = "GetStoreOrders", controller = "Store"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.StoreOrder]] GetStoreOrders(Int32, System.String) on controller WebAPI.Controllers.StoreController (WebAPI).
+2022-01-20 11:08:04.503 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.StoreOrder, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-01-20 11:08:04.504 -05:00 [INF] Executed action WebAPI.Controllers.StoreController.GetStoreOrders (WebAPI) in 25314.1557ms
+2022-01-20 11:08:04.504 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.StoreController.GetStoreOrders (WebAPI)'
+2022-01-20 11:08:04.504 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/api/Store/orders/596455?selection=high - - - 200 - application/json;+charset=utf-8 25388.9931ms
+2022-01-20 11:08:31.217 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/ProductOrder/Jon - -
+2022-01-20 11:08:31.264 -05:00 [INF] BasicAuthentication was not authenticated. Failure message: Authentication failed: The format of value '<null>' is invalid.
+2022-01-20 11:08:31.264 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.ProductOrderController.GetShoppingCart (WebAPI)'
+2022-01-20 11:08:31.265 -05:00 [INF] Route matched with {action = "GetShoppingCart", controller = "ProductOrder"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult GetShoppingCart(System.String) on controller WebAPI.Controllers.ProductOrderController (WebAPI).
+2022-01-20 11:08:31.820 -05:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2022-01-20 11:08:31.820 -05:00 [INF] Executed action WebAPI.Controllers.ProductOrderController.GetShoppingCart (WebAPI) in 555.1428ms
+2022-01-20 11:08:31.820 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.ProductOrderController.GetShoppingCart (WebAPI)'
+2022-01-20 11:08:31.820 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/api/ProductOrder/Jon - - - 204 - - 603.7598ms
+2022-01-20 11:08:53.703 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/Store/orders/596455?selection=low - -
+2022-01-20 11:08:53.776 -05:00 [INF] BasicAuthentication was not authenticated. Failure message: Authentication failed: The format of value '<null>' is invalid.
+2022-01-20 11:08:53.779 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.StoreController.GetStoreOrders (WebAPI)'
+2022-01-20 11:08:53.784 -05:00 [INF] Route matched with {action = "GetStoreOrders", controller = "Store"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.StoreOrder]] GetStoreOrders(Int32, System.String) on controller WebAPI.Controllers.StoreController (WebAPI).
+2022-01-20 11:08:54.154 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.StoreOrder, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-01-20 11:08:54.154 -05:00 [INF] Executed action WebAPI.Controllers.StoreController.GetStoreOrders (WebAPI) in 368.3152ms
+2022-01-20 11:08:54.154 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.StoreController.GetStoreOrders (WebAPI)'
+2022-01-20 11:08:54.155 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/api/Store/orders/596455?selection=low - - - 200 - application/json;+charset=utf-8 452.3147ms
+2022-01-20 11:09:14.386 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/User/orders/Jon?selection=high - -
+2022-01-20 11:09:14.431 -05:00 [INF] BasicAuthentication was not authenticated. Failure message: Authentication failed: The format of value '<null>' is invalid.
+2022-01-20 11:09:14.431 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.UserController.GetStoreOrders (WebAPI)'
+2022-01-20 11:09:14.433 -05:00 [INF] Route matched with {action = "GetStoreOrders", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.User]] GetStoreOrders(System.String, System.String) on controller WebAPI.Controllers.UserController (WebAPI).
+2022-01-20 11:09:15.772 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.StoreOrder, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-01-20 11:09:15.772 -05:00 [INF] Executed action WebAPI.Controllers.UserController.GetStoreOrders (WebAPI) in 1339.2325ms
+2022-01-20 11:09:15.772 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.UserController.GetStoreOrders (WebAPI)'
+2022-01-20 11:09:15.772 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/api/User/orders/Jon?selection=high - - - 200 - application/json;+charset=utf-8 1386.5323ms
+2022-01-20 11:13:14.105 -05:00 [INF] User profile is available. Using 'C:\Users\jonjo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-01-20 11:13:14.517 -05:00 [INF] Now listening on: https://localhost:7085
+2022-01-20 11:13:14.518 -05:00 [INF] Now listening on: http://localhost:5085
+2022-01-20 11:13:14.521 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 11:13:14.522 -05:00 [INF] Hosting environment: Development
+2022-01-20 11:13:14.522 -05:00 [INF] Content root path: C:\Users\jonjo\OneDrive\Desktop\Revature\P1\WebAPI\
+2022-01-20 11:13:15.235 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/index.html - -
+2022-01-20 11:13:15.655 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/index.html - - - 200 - text/html;charset=utf-8 426.6713ms
+2022-01-20 11:13:15.660 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - -
+2022-01-20 11:13:15.673 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - - - 200 11940 application/javascript;+charset=utf-8 14.8973ms
+2022-01-20 11:13:15.881 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - -
+2022-01-20 11:13:16.005 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 124.2987ms
+2022-01-20 11:13:24.763 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/api/Store - -
+2022-01-20 11:13:24.850 -05:00 [INF] BasicAuthentication was not authenticated. Failure message: Authentication failed: The format of value '<null>' is invalid.
+2022-01-20 11:13:24.855 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.StoreController.GetStore (WebAPI)'
+2022-01-20 11:13:24.863 -05:00 [INF] Route matched with {action = "GetStore", controller = "Store"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Store]] GetStore() on controller WebAPI.Controllers.StoreController (WebAPI).
+2022-01-20 11:13:26.670 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Store, Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-01-20 11:13:26.691 -05:00 [INF] Executed action WebAPI.Controllers.StoreController.GetStore (WebAPI) in 1822.8244ms
+2022-01-20 11:13:26.692 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.StoreController.GetStore (WebAPI)'
+2022-01-20 11:13:26.692 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/api/Store - - - 200 - application/json;+charset=utf-8 1929.4907ms
+2022-01-20 11:14:26.717 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7085/api/ProductOrder?username=Jon&prodID=123890&quantity=2 - 0
+2022-01-20 11:14:26.758 -05:00 [INF] BasicAuthentication was not authenticated. Failure message: Authentication failed: The format of value '<null>' is invalid.
+2022-01-20 11:14:26.759 -05:00 [INF] Executing endpoint 'WebAPI.Controllers.ProductOrderController.Post (WebAPI)'
+2022-01-20 11:14:26.771 -05:00 [INF] Route matched with {action = "Post", controller = "ProductOrder"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult Post(System.String, Int32, Int32) on controller WebAPI.Controllers.ProductOrderController (WebAPI).
+2022-01-20 11:14:27.185 -05:00 [INF] The product IPhone 13 Pro has been updated with a description of unused, price of 1099.99, and a quantity of 16
+2022-01-20 11:14:28.645 -05:00 [INF] A product order of 2 IPhone 13 Pros has been placed with the ID of 786526 to the user ID of {currUserID}'s shopping cart
+2022-01-20 11:14:28.646 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2022-01-20 11:14:28.647 -05:00 [INF] Executed action WebAPI.Controllers.ProductOrderController.Post (WebAPI) in 1876.1797ms
+2022-01-20 11:14:28.647 -05:00 [INF] Executed endpoint 'WebAPI.Controllers.ProductOrderController.Post (WebAPI)'
+2022-01-20 11:14:28.648 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7085/api/ProductOrder?username=Jon&prodID=123890&quantity=2 - 0 - 200 - text/plain;+charset=utf-8 1932.2430ms
+2022-01-20 14:06:09.928 -05:00 [INF] User profile is available. Using 'C:\Users\jonjo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-01-20 14:06:10.201 -05:00 [INF] Now listening on: https://localhost:7085
+2022-01-20 14:06:10.201 -05:00 [INF] Now listening on: http://localhost:5085
+2022-01-20 14:06:10.201 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 14:06:10.202 -05:00 [INF] Hosting environment: Development
+2022-01-20 14:06:10.202 -05:00 [INF] Content root path: C:\Users\jonjo\OneDrive\Desktop\Revature\P1\WebAPI\
+2022-01-20 14:06:11.350 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/index.html - -
+2022-01-20 14:06:11.585 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/index.html - - - 200 - text/html;charset=utf-8 241.6467ms
+2022-01-20 14:06:11.625 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - -
+2022-01-20 14:06:11.628 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/_framework/aspnetcore-browser-refresh.js - - - 200 11940 application/javascript;+charset=utf-8 3.2729ms
+2022-01-20 14:06:11.994 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - -
+2022-01-20 14:06:12.286 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7085/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 291.7878ms

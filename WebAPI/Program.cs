@@ -4,9 +4,15 @@ using WebAPI.API;
 using WebAPI.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
+Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.File("logfile.txt")
+                .CreateLogger();
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.UseSerilog();
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>
@@ -57,7 +63,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Jon's Store P1 v1"));
 }
-
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthentication();
