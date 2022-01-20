@@ -39,7 +39,7 @@ jobs:
             
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 400 private_key
-          ssh -i private_key ${USER_NAME}@${HOSTNAME}
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
           git clone https://github.com/MehrabRahman/Infante-Jon-P1
         
   
